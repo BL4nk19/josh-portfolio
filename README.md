@@ -51,4 +51,8 @@ Feel free to explore the repo, and if you're a dev seeing this - I'm always open
 Made with ❤️ and a lot of debugging.
 >"_The best way to learn development is to build something you're genuinely excited about._" - Me, probably at 2 AM
 
+<<<<<<< HEAD
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-JoshVilensky-blue)](https://linkedin.com/in/josh-vilensky)
+=======
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-JoshVilensky-blue)](https://linkedin.com/in/josh-vilensky)
+>>>>>>> 0268fd093776e20477ae86f6468bc625fc02e2ee
