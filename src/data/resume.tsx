@@ -9,8 +9,11 @@ export const DATA = {
   locationLink: "https://www.google.com/maps/place/pretoria",
   description:
     "Lead Product Designer transforming complex financial services into intuitive digital banking experiences. I combine strategic UX vision with cross-functional execution to deliver user-centred solutions that drive business growth.",
-  summary:
-    "Dynamic Product Design leader with proven ability to transform complex financial services requirements into intuitive digital banking experiences. Currently serving as Lead Product Designer at OM Bank, I've established robust design processes, mentored high-performing teams across multiple squads, and seamlessly collaborated with stakeholders at all levels to align design with banking business objectives. Known for innovation in digital banking UX and building design systems that scale.",
+    summary: `Dynamic Product Design leader specialising in fintech innovation, with proven ability to transform complex financial services requirements into intuitive digital experiences.
+
+Currently serving as Lead Product Designer at Old Mutual Bank, where I've established robust design processes across multiple squads and mentored high-performing teams. I've also worked with AI startups, providing design direction and concepts for their diverse product offerings - from chatbots and business integrations to specialised pharmaceutical mobile applications.
+
+Outside of work, I'm a curious soul who devours everything from design theory to emerging tech trends. You'll find me maintaining discipline at the gym, attempting (badly) to master the guitar, and constantly exploring whatever piques my interest - hence this portfolio site where I'm building an interactive app-like experience with AI integrations and experimental features.`,
   avatarUrl: "/avatar.jpg", // Add your photo here later
   skills: [
     "Figma",
