@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { HackathonCard } from "@/components/hackathon-card";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
@@ -11,6 +12,19 @@ import Markdown from "react-markdown";
 import { HexagonBackground } from '@/components/animate-ui/backgrounds/hexagon'; 
 
 const BLUR_FADE_DELAY = 0.04;
+
+export const metadata: Metadata = {
+  title: "Josh's Portfolio | UX/UI Designer",
+  description: "Epic UX/UI Designer Portfolio showcasing creative projects and design work",
+  keywords: ["UX Designer", "UI Designer", "Portfolio", "Creative Design"],
+  authors: [{ name: "Josh" }],
+  creator: "Josh",
+  openGraph: {
+    title: "Josh's Portfolio | UX/UI Designer",
+    description: "Epic UX/UI Designer Portfolio showcasing creative projects and design work",
+    type: "website",
+  },
+}
 
 export default function Page() {
   return (
@@ -154,6 +168,7 @@ export default function Page() {
           </div>
         </div>
       </section>
+      {/* Temporarily commented out hackathons section
       <section id="hackathons">
         <div className="space-y-12 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 13}>
@@ -197,6 +212,7 @@ export default function Page() {
           </BlurFade>
         </div>
       </section>
+      */}
       <section id="contact">
         <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 16}>
@@ -208,15 +224,15 @@ export default function Page() {
                 Get in Touch
               </h2>
               <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-  Want to chat? Just shoot me a dm{" "}
-  <Link
-    href={DATA.contact.social.LinkedIn.url}
-    className="text-blue-500 hover:underline"
-  >
-    with a direct question on LinkedIn
-  </Link>{" "}
-  and I&apos;ll respond whenever I can. Professional enquiries welcome.
-</p>
+                Want to chat? Just shoot me a dm{" "}
+                <Link
+                  href={DATA.contact.social.LinkedIn.url}
+                  className="text-blue-500 hover:underline"
+                >
+                  with a direct question on LinkedIn
+                </Link>{" "}
+                and I&apos;ll respond whenever I can. Professional enquiries welcome.
+              </p>
             </div>
           </BlurFade>
         </div>
