@@ -7,6 +7,7 @@ import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
+import { WorkExperienceOrbit } from "@/components/work-experience-orbit";
 import Link from "next/link";
 import Markdown from "react-markdown";
 import { HexagonBackground } from '@/components/animate-ui/backgrounds/hexagon'; 
@@ -14,7 +15,7 @@ import { HexagonBackground } from '@/components/animate-ui/backgrounds/hexagon';
 const BLUR_FADE_DELAY = 0.04;
 
 export const metadata: Metadata = {
-  title: "Josh's Portfolio | UX/UI Designer",
+  title: "Josh's Portfolio | UX/UI Product Designer",
   description: "Epic UX/UI Designer Portfolio showcasing creative projects and design work",
   keywords: ["UX Designer", "UI Designer", "Portfolio", "Creative Design"],
   authors: [{ name: "Josh" }],
@@ -52,7 +53,7 @@ export default function Page() {
       <div className="flex items-center gap-2 text-xl text-muted-foreground">
         <BlurFadeText
           delay={BLUR_FADE_DELAY * 3}
-          className="-mt.25"
+          className="-mt-0.25"
           text="Lead Product Designer"
         />
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
@@ -97,20 +98,10 @@ export default function Page() {
           </BlurFade>
         </div>
 
-        {/* RIGHT COLUMN - Orbit Spinner Placeholder */}
-        <div className="flex items-center justify-center min-h-[500px]">
-          <BlurFade delay={BLUR_FADE_DELAY * 5}>
-            <div className="relative">
-              <div className="w-96 h-96 border-2 border-dashed border-muted-foreground/30 rounded-full flex items-center justify-center">
-                <div className="text-center space-y-3">
-                  <div className="w-16 h-16 mx-auto bg-gradient-to-r from-blue-500 to-purple-600 rounded-full animate-pulse"></div>
-                  <p className="text-lg text-muted-foreground font-medium">Orbit Spinner</p>
-                  <p className="text-sm text-muted-foreground">Coming Soon</p>
-                </div>
-              </div>
-            </div>
-          </BlurFade>
-        </div>
+        {/* RIGHT COLUMN - Work Experience Orbit */}
+        <div className="min-h-[500px]">
+  <WorkExperienceOrbit />
+</div>
       </section>
 
       {/* EXISTING SECTIONS - Keep everything from work onwards */}

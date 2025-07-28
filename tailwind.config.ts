@@ -19,6 +19,12 @@ const config = {
       },
     },
     extend: {
+      maxWidth: {
+        'portfolio-narrow': '672px',   // Current (max-w-2xl)
+        'portfolio-medium': '896px',   // Compromise (max-w-4xl) 
+        'portfolio-wide': '1024px',    // Skyleen-style (max-w-5xl)
+        'portfolio-xl': '1280px',      // Even wider (max-w-6xl)
+      },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
       },
