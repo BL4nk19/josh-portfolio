@@ -38,3 +38,8 @@ next-env.d.ts
 progress-docs/**/*.png
 progress-docs/**/*.jpg
 progress-docs/**/*.jpeg
+
+# Progress documentation - dev only
+progress-docs/**/*.png
+progress-docs/**/*.jpg
+progress-docs/**/*.jpeg
