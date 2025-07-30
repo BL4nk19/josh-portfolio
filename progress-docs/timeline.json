@@ -1,0 +1,45 @@
+[
+  {
+    "id": 2,
+    "timestamp": "2025-07-30T10-18-06",
+    "commit": "2b0e1ca",
+    "message": "Orbital timeline v2 with detailed job cards",
+    "type": "feature",
+    "sessionDir": "2025-07-30T10-18-06_2b0e1ca",
+    "screenshots": {
+      "light": {
+        "desktop": {
+          "filename": "screenshot-light-desktop.png",
+          "path": "./progress-docs/2025-07-30T10-18-06_2b0e1ca/screenshot-light-desktop.png"
+        },
+        "mobile": {
+          "filename": "screenshot-light-mobile.png",
+          "path": "./progress-docs/2025-07-30T10-18-06_2b0e1ca/screenshot-light-mobile.png"
+        }
+      },
+      "dark": {
+        "desktop": {
+          "filename": "screenshot-dark-desktop.png",
+          "path": "./progress-docs/2025-07-30T10-18-06_2b0e1ca/screenshot-dark-desktop.png"
+        },
+        "mobile": {
+          "filename": "screenshot-dark-mobile.png",
+          "path": "./progress-docs/2025-07-30T10-18-06_2b0e1ca/screenshot-dark-mobile.png"
+        }
+      }
+    },
+    "title": "Orbital timeline v2 with detailed job cards",
+    "content": "FEATURE: Orbital timeline v2 with detailed job cards\n\n- Added large expandable cards with metrics, achievements, and skills\n\n- Implemented proper scrolling for card content\n\n- Enhanced career journey navigation with directional arrows\n\n- Updated status badges to show Current/Previous\n\n- Improved positioning and spacing of orbital components\n\n- Added professional card design with fixed headers",
+    "date": "Invalid Date"
+  },
+  {
+    "id": 1,
+    "timestamp": "2025-07-30T09-52-50",
+    "commit": "2b0e1ca",
+    "message": "Orbital timeline v2 with detailed job cards",
+    "type": "feature",
+    "sessionDir": "2025-07-30T09-52-50_2b0e1ca",
+    "screenshot": "./progress-docs/2025-07-30T09-52-50_2b0e1ca/screenshot.png",
+    "mobileScreenshot": "./progress-docs/2025-07-30T09-52-50_2b0e1ca/screenshot-mobile.png"
+  }
+]

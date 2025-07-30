@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "capture": "node scripts/capture-progress.js",
+    "capture:dev": "SITE_URL=http://localhost:3000 npm run capture",
+    "capture:prod": "SITE_URL=https://your-site.vercel.app npm run capture",
+    "dev:capture": "npm run dev & sleep 5 && npm run capture:dev"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.6",
@@ -43,6 +47,7 @@
     "@types/react-dom": "^18.3.6",
     "eslint": "^8.57.1",
     "eslint-config-next": "14.2.4",
+    "playwright": "^1.54.1",
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.8.3"
