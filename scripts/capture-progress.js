@@ -234,7 +234,7 @@ async function updateTimeline(entry, sessionDir) {
     // For 21st.dev timeline component compatibility
     title: entry.commit.message.split('\n')[0],
     content: `${entry.notes.type.toUpperCase()}: ${entry.commit.message}`,
-    date: new Date(entry.timestamp).toLocaleDateString('en-GB')
+    date: new Date().toLocaleDateString('en-GB') 
   });
   
   // Keep last 50 entries
