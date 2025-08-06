@@ -32,45 +32,45 @@ export default function Page() {
     <main className="relative flex flex-col min-h-[100dvh] space-y-10">
       <HexagonBackground className="fixed inset-0 -z-10 opacity-30 dark:opacity-50" />
       
-      {/* HERO SECTION - Elliot Style */}
-<section id="hero" className="flex items-center justify-center min-h-[50vh]">
-  <div className="flex items-end gap-8">
+      {/* HERO SECTION - Mobile First Responsive */}
+<section id="hero" className="flex flex-col items-center justify-center min-h-[60vh] space-y-6 sm:space-y-8">
+  <div className="flex flex-col items-center text-center space-y-6 sm:space-y-8">
     <BlurFade delay={BLUR_FADE_DELAY}>
-      <Avatar className="size-48 border-4">
+      <Avatar className="size-24 sm:size-32 md:size-40 lg:size-48 border-4">
         <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
         <AvatarFallback>{DATA.initials}</AvatarFallback>
       </Avatar>
     </BlurFade>
     
-    <div className="space-y-4">
+    <div className="space-y-3 sm:space-y-4">
       <BlurFadeText
         delay={BLUR_FADE_DELAY * 2}
-        className="text-6xl font-bold tracking-tight"
+        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight"
         yOffset={8}
         text="Josh Vilensky"
       />
       
-      <div className="flex items-center gap-2 text-xl text-muted-foreground">
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 text-base sm:text-lg md:text-xl text-muted-foreground">
         <BlurFadeText
           delay={BLUR_FADE_DELAY * 3}
-          className="-mt-0.25"
+          className="text-center"
           text="Lead Product Designer"
         />
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
-          <span>·</span>
+          <span className="hidden sm:inline">·</span>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
-          <div className="flex items-center gap-3 -mt-1">
-            <span>Working at</span>
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3">
+            <span className="text-sm sm:text-base">Working at</span>
             <img 
               src="/ombank-logo-green.svg" 
               alt="OM Bank"
-              className="h-8 dark:hidden"
+              className="h-6 sm:h-8 dark:hidden"
             />
             <img 
               src="/ombank-logo-white.svg" 
               alt="OM Bank"
-              className="h-8 hidden dark:block"
+              className="h-6 sm:h-8 hidden dark:block"
             />
           </div>
         </BlurFade>
@@ -80,14 +80,14 @@ export default function Page() {
 </section>
 
       {/* TWO-COLUMN CONTENT SECTION */}
-      <section className="grid lg:grid-cols-2 gap-16 items-start">
+      <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
         
         {/* LEFT COLUMN - About Content */}
-        <div className="space-y-8">
+        <div className="space-y-6 sm:space-y-8">
           <BlurFade delay={BLUR_FADE_DELAY * 4}>
-            <div className="space-y-6">
-              <h2 className="text-3xl font-bold">About Me</h2>
-              <div className="space-y-4 text-base text-muted-foreground leading-relaxed">
+            <div className="space-y-4 sm:space-y-6">
+              <h2 className="text-2xl sm:text-3xl font-bold">About Me</h2>
+              <div className="space-y-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
                 {DATA.summary.split('\n\n').map((paragraph, index) => (
                   <p key={index} className="text-pretty">
                     {paragraph}
@@ -99,7 +99,7 @@ export default function Page() {
         </div>
 
         {/* RIGHT COLUMN - Work Experience Orbit */}
-        <div className="min-h-[500px]">
+        <div className="min-h-[400px] sm:min-h-[500px]">
   <WorkExperienceOrbit />
 </div>
       </section>

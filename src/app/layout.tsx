@@ -46,6 +46,12 @@ export const metadata: Metadata = {
     google: "",
     yandex: "",
   },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+  },
 };
 
 export default function RootLayout({
@@ -55,9 +61,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+      </head>
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased max-w-6xl mx-auto py-12 sm:py-24 px-6 lg:px-8",
+          "min-h-screen bg-background font-sans antialiased max-w-6xl mx-auto py-6 sm:py-12 lg:py-24 px-4 sm:px-6 lg:px-8",
           fontSans.variable
         )}
       >
