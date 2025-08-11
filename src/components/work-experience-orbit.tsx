@@ -2,58 +2,84 @@
 
 import OrbitalTimeline from "@/components/ui/orbital-timeline";
 import BlurFade from "@/components/magicui/blur-fade";
-import { Building2, Smartphone, Cpu, Users } from "lucide-react";
+import { Building2, Smartphone, Cpu, Users, Lock } from "lucide-react";
 
 export function WorkExperienceOrbit() {
   const workExperienceData = [
     {
       id: 1,
-      title: "Lead Product Designer",
-      company: "OM Bank",
-      period: "2023 - Present",
-      description: "Leading digital transformation initiatives at South Africa's largest mutual insurer, focusing on mobile-first experiences and customer journey optimisation.",
-      skills: ["Product Strategy", "Design Systems", "Fintech UX"],
-      icon: Building2,
-      status: "current" as const,
-      color: "#22c55e",
-      energy: 95,
+      title: "Freelance UX/UI Product Designer",
+      company: "OpenCollab",
+      period: "2017 - 2019",
+      description: "Led comprehensive redesign initiative for educational platform through intensive user research and collaborative design processes. Delivered strategic UX roadmap with actionable recommendations and high-fidelity prototypes.",
+      skills: ["Collaboration Tools", "User Interface Design", "Creative Solutions"],
+      icon: Users,
+      status: "completed" as const,
+      color: "#f59e0b",
+      energy: 65,
       relatedIds: [2],
       metrics: {
-        teamSize: "8 People",
-        products: "3 Apps",
-        users: "2.1M+",
-        npsScore: "+67"
+        teamSize: "4 People",
+        products: "1 Platform",
+        users: "25K+",
+        npsScore: "+64"
       },
       achievements: [
         {
-          name: "Mobile Banking Redesign",
-          description: "Complete UX overhaul & conversion optimisation",
-          impact: "+34% conversion"
+          name: "Collaboration Platform",
+          description: "Complete team workflow solution",
+          impact: "+50% productivity"
         },
         {
-          name: "Design System Implementation",
-          description: "Cross-platform component library rollout",
-          impact: "12 teams"
-        },
-        {
-          name: "Customer Onboarding",
-          description: "Streamlined digital journey & flow optimisation",
-          impact: "-45% time"
+          name: "Real-time Features", 
+          description: "Live collaboration capabilities",
+          impact: "Instant sync"
         }
       ]
     },
     {
       id: 2,
-      title: "Senior UX/UI Designer", 
+      title: "UX/UI Product Designer",
+      company: "IoT.nxt", 
+      period: "2019 - 2023",
+      description: "Transformed complex IoT data systems into intuitive user experiences, pioneering user-centred design approach for enterprise dashboards. Established cohesive design system and led cross-functional collaboration.",
+      skills: ["IoT Design", "Data Visualisation", "Enterprise UX"],
+      icon: Cpu,
+      status: "completed" as const,
+      color: "#8b5cf6",
+      energy: 75,
+      relatedIds: [1, 3],
+      metrics: {
+        teamSize: "3 People",
+        products: "2 Platforms",
+        users: "50K+",
+        npsScore: "+59"
+      },
+      achievements: [
+        {
+          name: "IoT Dashboard Framework",
+          description: "Unified interface system for industrial data",
+          impact: "+40% efficiency"
+        },
+        {
+          name: "Enterprise Mobile App",
+          description: "Real-time monitoring capabilities", 
+          impact: "24/7 access"
+        }
+      ]
+    },
+    {
+      id: 3,
+      title: "Senior Product Designer",
       company: "Rank Interactive",
       period: "2021 - 2023",
-      description: "Designed engaging digital experiences for entertainment and gaming platforms, focusing on user retention and conversion optimisation across web and mobile applications.",
+      description: "Spearheaded complete redesign of business-critical platform powering 80% of revenue-generating promotions. Transformed outdated legacy system into modern, streamlined solution for B2B clients.",
       skills: ["Mobile Design", "User Research", "Design Systems"],
       icon: Smartphone,
       status: "completed" as const,
       color: "#3b82f6",
       energy: 85,
-      relatedIds: [1, 3],
+      relatedIds: [2, 4],
       metrics: {
         teamSize: "5 People",
         products: "4 Platforms",
@@ -74,64 +100,102 @@ export function WorkExperienceOrbit() {
       ]
     },
     {
-      id: 3,
-      title: "Product Designer",
-      company: "IoT.nxt", 
-      period: "2019 - 2021",
-      description: "Crafted intuitive interfaces for complex IoT dashboards and enterprise software, making industrial data accessible and actionable for business users.",
-      skills: ["IoT Design", "Data Visualisation", "Enterprise UX"],
-      icon: Cpu,
-      status: "completed" as const,
-      color: "#8b5cf6",
-      energy: 75,
-      relatedIds: [2, 4],
+      id: 4,
+      title: "Product Design Leadership", 
+      company: "Old Mutual",
+      period: "2023 - Present",
+      description: "Driving design excellence across multiple product squads whilst establishing consistent quality standards and mentoring design teams. Leading banking innovation initiatives.",
+      skills: ["Product Strategy", "Design Systems", "Fintech UX"],
+      icon: Building2,
+      status: "current" as const,
+      color: "#22c55e",
+      energy: 95,
+      relatedIds: [3, 5],
+      // Special data for Old Mutual progression stepper
+      hasProgression: true,
+      progressionSteps: [
+        {
+          role: "Lead Product Designer - OM Bank",
+          period: "Feb 2025 - Present",
+          duration: "7 mos", 
+          highlights: [
+            "Cross-squad leadership: Mentoring teams across multiple squads",
+            "Strategic process design: Streamlined delivery methodologies",
+            "Executive collaboration: Design sprints with senior leadership"
+          ]
+        },
+        {
+          role: "Senior Product Designer",
+          period: "Oct 2023 - Feb 2025",
+          duration: "1 yr 5 mos",
+          highlights: [
+            "Established Insight Card methodology (banking-wide adoption)",
+            "Redesigned savings goal journeys with gamification", 
+            "Conducted accessibility reworks for compliance standards"
+          ]
+        }
+      ],
       metrics: {
-        teamSize: "3 People",
-        products: "2 Platforms",
-        users: "50K+",
-        npsScore: "+59"
+        teamSize: "8 People",
+        products: "3 Apps", 
+        users: "2.1M+",
+        npsScore: "+67"
       },
       achievements: [
         {
-          name: "IoT Dashboard Framework",
-          description: "Unified interface system for industrial data",
-          impact: "+40% efficiency"
+          name: "Mobile Banking Redesign",
+          description: "Complete UX overhaul & conversion optimisation",
+          impact: "+34% conversion"
         },
         {
-          name: "Enterprise Mobile App",
-          description: "Real-time monitoring capabilities",
-          impact: "24/7 access"
+          name: "Design System Implementation", 
+          description: "Cross-platform component library rollout",
+          impact: "12 teams"
+        },
+        {
+          name: "Customer Onboarding",
+          description: "Streamlined digital journey & flow optimisation", 
+          impact: "-45% time"
         }
       ]
     },
     {
-      id: 4,
-      title: "UX Designer",
-      company: "OpenCollab",
-      period: "2017 - 2019", 
-      description: "Designed collaborative tools and interfaces for remote teams, focusing on seamless communication and project management experiences.",
-      skills: ["Collaboration Tools", "User Interface Design", "Creative Solutions"],
-      icon: Users,
-      status: "completed" as const,
-      color: "#f59e0b",
-      energy: 65,
-      relatedIds: [3],
-      metrics: {
-        teamSize: "4 People",
-        products: "1 Platform",
-        users: "25K+",
-        npsScore: "+64"
+      id: 5,
+      title: "Strategic Projects",
+      company: "Secret",
+      period: "2024 - Present", 
+      description: "Confidential strategic design initiatives and product development projects.",
+      skills: ["Strategic Design", "Product Innovation", "Confidential"],
+      icon: Lock,
+      status: "current" as const,
+      color: "#ef4444",
+      energy: 88,
+      relatedIds: [4],
+      // Password protection
+      isProtected: true,
+      passwordHint: "Enter access code to view confidential projects",
+      sessionTimeout: 120000, // 2 minutes
+      protectedMetrics: {
+        startupStage: "Series A",
+        sector: "AI Innovation", 
+        users: "Growing Fast",
+        impact: "Stealth Mode"
       },
-      achievements: [
+      protectedAchievements: [
         {
-          name: "Collaboration Platform",
-          description: "Complete team workflow solution",
-          impact: "+50% productivity"
+          name: "AI Platform Design",
+          description: "Leading product design for breakthrough AI platform",
+          impact: "Stealth Mode"
         },
         {
-          name: "Real-time Features",
-          description: "Live collaboration capabilities",
-          impact: "Instant sync"
+          name: "Design Foundations",
+          description: "Establishing design foundations for rapidly scaling startup", 
+          impact: "Foundational"
+        },
+        {
+          name: "UX Strategy",
+          description: "Driving user experience strategy for emerging technology",
+          impact: "Strategic"
         }
       ]
     }

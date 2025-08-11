@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { ArrowRight, X, ArrowLeft } from "lucide-react";
+import { ArrowRight, X, ArrowLeft, Lock, Unlock, Eye, EyeOff } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -9,6 +9,14 @@ import { LucideIcon } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
+import { Input } from "@/components/ui/input";
+
+interface ProgressionStep {
+  role: string;
+  period: string;
+  duration: string;
+  highlights: string[];
+}
 
 interface TimelineItem {
   id: number;
@@ -33,6 +41,18 @@ interface TimelineItem {
     description: string;
     impact: string;
   }>;
+  // NEW PROPERTIES (all optional)
+  hasProgression?: boolean;
+  progressionSteps?: ProgressionStep[];
+  isProtected?: boolean;
+  passwordHint?: string;
+  sessionTimeout?: number;
+  protectedMetrics?: Record<string, string>;
+  protectedAchievements?: Array<{
+    name: string;
+    description: string;
+    impact: string;
+  }>;
 }
 
 interface OrbitalTimelineProps {
@@ -49,6 +69,12 @@ export default function OrbitalTimeline({ items }: OrbitalTimelineProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const orbitRef = useRef<HTMLDivElement>(null);
   const nodeRefs = useRef<Record<number, HTMLDivElement | null>>({});
+  
+  // ADD THESE STATE VARIABLES to your existing useState declarations:
+  const [unlockedItems, setUnlockedItems] = useState<Record<number, boolean>>({});
+  const [passwordInputs, setPasswordInputs] = useState<Record<number, string>>({});
+  const [unlockTimers, setUnlockTimers] = useState<Record<number, NodeJS.Timeout>>({});
+  const [showPassword, setShowPassword] = useState<Record<number, boolean>>({});
 
   // Set radius based on screen size
   useEffect(() => {
@@ -134,6 +160,237 @@ export default function OrbitalTimeline({ items }: OrbitalTimelineProps) {
     const targetAngle = (nodeIndex / totalNodes) * 360;
 
     setRotationAngle(270 - targetAngle);
+  };
+
+  // ADD THESE FUNCTIONS (place them before your existing toggleItem function):
+  const handlePasswordSubmit = (itemId: number, password: string) => {
+    const correctPassword = "designleader2024"; // Change this to your preferred password
+    
+    if (password === correctPassword) {
+      setUnlockedItems(prev => ({ ...prev, [itemId]: true }));
+      setPasswordInputs(prev => ({ ...prev, [itemId]: "" }));
+      
+      // Set timeout for re-locking
+      const item = items.find(i => i.id === itemId);
+      if (item?.sessionTimeout) {
+        const timer = setTimeout(() => {
+          setUnlockedItems(prev => ({ ...prev, [itemId]: false }));
+        }, item.sessionTimeout);
+        
+        setUnlockTimers(prev => {
+          if (prev[itemId]) clearTimeout(prev[itemId]);
+          return { ...prev, [itemId]: timer };
+        });
+      }
+    } else {
+      setPasswordInputs(prev => ({ ...prev, [itemId]: "" }));
+    }
+  };
+
+  const renderProgressionStepper = (steps: ProgressionStep[]) => (
+    <div className="space-y-4">
+      <h4 className="text-sm font-medium text-muted-foreground mb-3">Career Progression</h4>
+      <div className="relative">
+        {steps.map((step, index) => (
+          <div key={index} className="flex gap-4 pb-6 last:pb-0">
+            <div className="flex flex-col items-center">
+              <div className={cn(
+                "w-3 h-3 rounded-full border-2 bg-background",
+                index === steps.length - 1 
+                  ? "border-green-500 bg-green-500" 
+                  : "border-muted-foreground"
+              )} />
+              {index < steps.length - 1 && (
+                <div className="w-0.5 h-8 bg-muted-foreground/30 mt-2" />
+              )}
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-2 mb-1">
+                <h5 className="text-sm font-medium">{step.role}</h5>
+                {index === steps.length - 1 && (
+                  <Badge variant="secondary" className="text-xs bg-green-500/20 text-green-400">
+                    Current
+                  </Badge>
+                )}
+              </div>
+              <p className="text-xs text-muted-foreground mb-2">
+                {step.period} • {step.duration}
+              </p>
+              <ul className="space-y-1">
+                {step.highlights.map((highlight, i) => (
+                  <li key={i} className="text-xs text-muted-foreground leading-relaxed">
+                    • {highlight}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+
+  const renderProtectedContent = (item: TimelineItem) => {
+    const isUnlocked = unlockedItems[item.id];
+    
+    if (!isUnlocked) {
+      return (
+        <div className="relative">
+          <div className="filter blur-lg select-none pointer-events-none opacity-30">
+            <div className="space-y-6">
+              {/* Description placeholder */}
+              <div className="space-y-3">
+                <h5 className="text-sm font-medium text-muted-foreground">Strategic Projects</h5>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Confidential strategic design initiatives and product development projects currently in stealth mode.
+                  This content is intentionally blurred to maintain the card&apos;s natural height and structure.
+                </p>
+              </div>
+              
+              {/* Metrics placeholder */}
+              <div className="grid grid-cols-2 gap-3">
+                <div className="bg-muted/30 rounded-lg p-3 border border-border/30">
+                  <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">Stage</p>
+                  <p className="text-sm font-semibold">Stealth Mode</p>
+                </div>
+                <div className="bg-muted/30 rounded-lg p-3 border border-border/30">
+                  <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">Sector</p>
+                  <p className="text-sm font-semibold">AI Innovation</p>
+                </div>
+              </div>
+              
+              {/* Achievements placeholder */}
+              <div className="space-y-3">
+                <h5 className="text-sm font-medium text-muted-foreground">Key Initiatives</h5>
+                <div className="space-y-2">
+                  <div className="text-sm text-muted-foreground leading-relaxed">
+                    • AI platform design foundation
+                  </div>
+                  <div className="text-sm text-muted-foreground leading-relaxed">
+                    • Strategic UX framework development
+                  </div>
+                </div>
+              </div>
+              
+              {/* Skills placeholder */}
+              <div className="space-y-3">
+                <h5 className="text-sm font-medium text-muted-foreground">Core Focus</h5>
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="secondary" className="text-xs">Strategic Design</Badge>
+                  <Badge variant="secondary" className="text-xs">AI Innovation</Badge>
+                  <Badge variant="secondary" className="text-xs">Stealth Projects</Badge>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" onClick={(e) => e.stopPropagation()}>
+            <div className="h-full flex flex-col">
+              {/* Header Section - Same structure as unlocked cards */}
+              <div className="p-6 pb-4 border-b border-border/50">
+                <div className="text-center space-y-3">
+                  <Lock className="h-12 w-12 mx-auto text-muted-foreground" />
+                  <h4 className="text-lg font-medium">Protected Content</h4>
+                  <p className="text-sm text-muted-foreground">{item.passwordHint}</p>
+                </div>
+              </div>
+              
+                            {/* Content Section - Distributed to fill space like unlocked cards */}
+              <div className="flex-1 p-6 space-y-6">
+                {/* Password Input Section */}
+                <div className="space-y-4">
+                  <div className="relative">
+                    <Input
+                      type={showPassword[item.id] ? "text" : "password"}
+                      placeholder="Enter password"
+                      value={passwordInputs[item.id] || ""}
+                      onChange={(e) => setPasswordInputs(prev => ({ 
+                        ...prev, 
+                        [item.id]: e.target.value 
+                      }))}
+                      onKeyDown={(e) => {
+                        e.stopPropagation();
+                        if (e.key === 'Enter') {
+                          handlePasswordSubmit(item.id, passwordInputs[item.id] || "");
+                        }
+                      }}
+                      onClick={(e) => e.stopPropagation()}
+                      className="pr-10 w-full"
+                    />
+                    <button
+                      type="button"
+                      className="absolute right-2 top-1/2 transform -translate-y-1/2"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setShowPassword(prev => ({ 
+                          ...prev, 
+                          [item.id]: !prev[item.id] 
+                        }));
+                      }}
+                    >
+                      {showPassword[item.id] ? (
+                        <EyeOff className="h-4 w-4" />
+                    ) : (
+                        <Eye className="h-4 w-4" />
+                      )}
+                    </button>
+                  </div>
+                  <div className="space-y-2">
+                    <Button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handlePasswordSubmit(item.id, passwordInputs[item.id] || "");
+                      }}
+                      size="sm"
+                      className="w-full"
+                    >
+                      <Unlock className="h-4 w-4 mr-2" />
+                      Unlock
+                    </Button>
+                    <p className="text-xs text-muted-foreground text-center">* Session expires after 2 minutes</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <div className="space-y-4" onClick={(e) => e.stopPropagation()}>
+        <div className="flex items-center gap-2 mb-4">
+          <Unlock className="h-4 w-4 text-green-500" />
+          <span className="text-sm text-green-500 font-medium">Content Unlocked</span>
+        </div>
+        
+        {item.protectedMetrics && (
+          <div className="grid grid-cols-2 gap-3">
+            {Object.entries(item.protectedMetrics).map(([key, value]) => (
+              <div key={key} className="bg-muted/50 p-3 rounded-lg">
+                <div className="text-xs text-muted-foreground capitalize mb-1">
+                  {key.replace(/([A-Z])/g, ' $1').trim()}
+                </div>
+                <div className="text-sm font-medium">{value}</div>
+              </div>
+            ))}
+          </div>
+        )}
+        
+        {item.protectedAchievements && (
+          <div className="space-y-2">
+            <h4 className="text-sm font-medium text-muted-foreground">Key Achievements</h4>
+            <div className="space-y-1">
+              {item.protectedAchievements.map((achievement, index) => (
+                <div key={index} className="text-xs text-muted-foreground leading-relaxed">
+                  • {achievement.description} - {achievement.impact}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    );
   };
 
   const calculateNodePosition = (index: number, total: number) => {
@@ -267,6 +524,13 @@ export default function OrbitalTimeline({ items }: OrbitalTimelineProps) {
                     <span className="hidden sm:inline">{item.company}</span>
                     <span className="sm:hidden">{item.company.split(' ')[0]}</span>
                   </div>
+
+                  {/* Protection Indicator */}
+                  {item.isProtected && (
+                    <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-red-500 rounded-full border-2 border-background flex items-center justify-center">
+                      <Lock className="w-2 h-2 text-white" />
+                    </div>
+                  )}
                 </div>
 
                 {/* Expanded Card with Glowing Effect */}
@@ -301,115 +565,133 @@ export default function OrbitalTimeline({ items }: OrbitalTimelineProps) {
                               {/* Connection Line */}
                               <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-px h-4 bg-border"></div>
                         
-                              {/* Fixed Header */}
-                              <div className="sticky top-0 z-10 bg-background/95 backdrop-blur-xl border-b border-border/50">
-                                <div className="p-6 pb-4">
-                                  <div className="flex justify-between items-start">
-                                    <div className="flex-1">
-                                      <div className="flex justify-between items-center mb-2">
-                                        <h3 className="text-lg font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-                                          {item.title}
-                                        </h3>
-                                        {/* Status badge without hover state */}
-                                        <span className={cn(
-                                          "px-2 py-0.5 text-xs font-medium rounded-full cursor-default",
-                                          item.status === "current" 
-                                            ? "bg-green-500/20 text-green-400 border border-green-500/30" 
-                                            : "bg-muted text-muted-foreground border border-border"
-                                        )}>
-                                          {item.status === "current" ? "Current" : "Previous"}
-                                        </span>
+                              {/* Fixed Header - Hidden for protected content when locked */}
+                              {!item.isProtected || unlockedItems[item.id] ? (
+                                <div className="sticky top-0 z-10 bg-background/95 backdrop-blur-xl border-b border-border/50">
+                                  <div className="p-6 pb-4">
+                                    <div className="flex justify-between items-start">
+                                      <div className="flex-1">
+                                        <div className="flex justify-between items-center mb-2">
+                                          <h3 className="text-lg font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+                                            {item.title}
+                                          </h3>
+                                          {/* Status badge without hover state */}
+                                          <span className={cn(
+                                            "px-2 py-0.5 text-xs font-medium rounded-full cursor-default",
+                                            item.status === "current" 
+                                              ? "bg-green-500/20 text-green-400 border border-green-500/30" 
+                                              : "bg-muted text-muted-foreground border border-border"
+                                          )}>
+                                            {item.status === "current" ? "Current" : "Previous"}
+                                          </span>
+                                        </div>
+                                        <div className="flex justify-between items-center">
+                                          <div className="text-sm text-muted-foreground">{item.company}</div>
+                                          <div className="text-xs text-muted-foreground">{item.period}</div>
+                                        </div>
                                       </div>
-                                      <div className="flex justify-between items-center">
-                                        <div className="text-sm text-muted-foreground">{item.company}</div>
-                                        <div className="text-xs text-muted-foreground">{item.period}</div>
-                                      </div>
+                                      <button
+                                        onClick={(e) => {
+                                          e.stopPropagation();
+                                          toggleItem(item.id);
+                                        }}
+                                        className="ml-2 p-1.5 rounded-lg hover:bg-muted/50 transition-colors group"
+                                      >
+                                        <X className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
+                                      </button>
                                     </div>
-                                    <button
-                                      onClick={(e) => {
-                                        e.stopPropagation();
-                                        toggleItem(item.id);
-                                      }}
-                                      className="ml-2 p-1.5 rounded-lg hover:bg-muted/50 transition-colors group"
-                                    >
-                                      <X className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
-                                    </button>
                                   </div>
                                 </div>
-                              </div>
+                              ) : (
+                                /* Minimal header for locked state - only close button */
+                                <div className="sticky top-0 z-10 bg-background/95 backdrop-blur-xl border-b border-border/50">
+                                  <div className="p-6 pb-4">
+                                    <div className="flex justify-end">
+                                      <button
+                                        onClick={(e) => {
+                                          e.stopPropagation();
+                                          toggleItem(item.id);
+                                        }}
+                                        className="p-1.5 rounded-lg hover:bg-muted/50 transition-colors group"
+                                      >
+                                        <X className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+                              )}
 
                               {/* Scrollable Content */}
                               <div className="max-h-[45vh] overflow-y-auto">
                                 <div className="p-6 pt-4 pb-8 space-y-4">
-                                  {/* Description */}
-                                  <p className="text-sm text-muted-foreground leading-relaxed">
-                                    {item.description}
-                                  </p>
+                                  
+                                  {/* Handle protected content */}
+                                  {item.isProtected ? (
+                                    renderProtectedContent(item)
+                                  ) : (
+                                    <>
+                                      {/* Description */}
+                                      <p className="text-sm text-muted-foreground leading-relaxed">
+                                        {item.description}
+                                      </p>
 
-                                  {/* Metrics Grid */}
-                                  {item.metrics && (
-                                    <div className="grid grid-cols-2 gap-3">
-                                      {Object.entries(item.metrics).map(([key, value]) => (
-                                        <div key={key} className="bg-muted/30 rounded-lg p-3 border border-border/30">
-                                          <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">
-                                            {key.replace(/([A-Z])/g, ' $1').trim()}
-                                          </p>
-                                          <p className="text-sm font-semibold">{value}</p>
+                                      {/* Old Mutual Progression Stepper */}
+                                      {item.hasProgression && item.progressionSteps && 
+                                        renderProgressionStepper(item.progressionSteps)
+                                      }
+
+                                      {/* Metrics Grid - only show if no progression */}
+                                      {item.metrics && !item.hasProgression && (
+                                        <div className="grid grid-cols-2 gap-3">
+                                          {Object.entries(item.metrics).map(([key, value]) => (
+                                            <div key={key} className="bg-muted/30 rounded-lg p-3 border border-border/30">
+                                              <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">
+                                                {key.replace(/([A-Z])/g, ' $1').trim()}
+                                              </p>
+                                              <p className="text-sm font-semibold">{value}</p>
+                                            </div>
+                                          ))}
                                         </div>
-                                      ))}
-                                    </div>
-                                  )}
+                                      )}
 
-                                  {/* Achievements */}
-                                  {item.achievements && item.achievements.length > 0 && (
-                                    <div className="space-y-3">
-                                      <div className="flex items-center gap-2">
-                                        <span>🏆</span>
-                                        <h4 className="text-sm font-semibold text-foreground">Key Achievements</h4>
-                                      </div>
-                                      {item.achievements.map((achievement, idx) => (
-                                        <div key={idx} className="flex justify-between items-center py-2 border-b border-border/30 last:border-b-0">
-                                          <div className="flex-1">
-                                            <div className="text-sm font-medium text-foreground">{achievement.name}</div>
-                                            <div className="text-xs text-muted-foreground">{achievement.description}</div>
+                                      {/* Achievements */}
+                                      {item.achievements && (
+                                        <div className="space-y-2">
+                                          <h4 className="text-sm font-medium text-muted-foreground">Key Achievements</h4>
+                                          <div className="space-y-1">
+                                            {item.achievements.map((achievement, index) => (
+                                              <div key={index} className="text-xs text-muted-foreground leading-relaxed">
+                                                • {achievement.description} - {achievement.impact}
+                                              </div>
+                                            ))}
                                           </div>
-                                          <div className="text-xs text-green-400 font-medium">{achievement.impact}</div>
                                         </div>
-                                      ))}
-                                    </div>
-                                  )}
+                                      )}
 
-                                  {/* Skills */}
-                                  {item.skills && item.skills.length > 0 && (
-                                    <div className="space-y-3">
-                                      <h4 className="text-sm font-semibold text-foreground">Skills</h4>
+                                      {/* Skills */}
                                       <div className="flex flex-wrap gap-2">
-                                        {item.skills.map((skill, idx) => (
-                                          <Badge 
-                                            key={idx} 
-                                            variant="secondary" 
-                                            className="text-xs px-3 py-1 bg-secondary/50 border border-border/30"
-                                          >
+                                        {item.skills.map((skill, index) => (
+                                          <Badge key={index} variant="secondary" className="text-xs">
                                             {skill}
                                           </Badge>
                                         ))}
                                       </div>
-                                    </div>
+                                    </>
                                   )}
 
-                                  {/* Career Journey Navigation */}
-                                  {item.relatedIds && item.relatedIds.length > 0 && (
+                                  {/* Career Journey Navigation - Hidden for protected content when locked */}
+                                  {item.relatedIds && item.relatedIds.length > 0 && (!item.isProtected || unlockedItems[item.id]) && (
                                     <div className="pt-4 border-t border-border/30">
                                       <h4 className="text-xs font-semibold mb-3">Career Journey</h4>
                                       <div className="flex justify-between items-center">
-                                        {/* Previous (Left side) */}
+                                        {/* Previous (Left side) - Lower IDs */}
                                         <div className="flex gap-2">
                                           {item.relatedIds
                                             .filter(relatedId => {
                                               const relatedItem = items.find((i) => i.id === relatedId);
-                                              return relatedItem && relatedId > item.id;
+                                              return relatedItem && relatedId < item.id;
                                             })
-                                            .sort((a, b) => a - b)
+                                            .sort((a, b) => b - a)
                                             .map((relatedId) => {
                                               const relatedItem = items.find((i) => i.id === relatedId);
                                               if (!relatedItem) return null;
@@ -432,14 +714,14 @@ export default function OrbitalTimeline({ items }: OrbitalTimelineProps) {
                                             })}
                                         </div>
 
-                                        {/* Next (Right side) */}
+                                        {/* Next (Right side) - Higher IDs */}
                                         <div className="flex gap-2">
                                           {item.relatedIds
                                             .filter(relatedId => {
                                               const relatedItem = items.find((i) => i.id === relatedId);
-                                              return relatedItem && relatedId < item.id;
+                                              return relatedItem && relatedId > item.id;
                                             })
-                                            .sort((a, b) => b - a)
+                                            .sort((a, b) => a - b)
                                             .map((relatedId) => {
                                               const relatedItem = items.find((i) => i.id === relatedId);
                                               if (!relatedItem) return null;

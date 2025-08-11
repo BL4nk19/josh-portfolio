@@ -1,0 +1,107 @@
+{
+  "timestamp": "2025-08-11T19-50-07",
+  "commit": {
+    "sha": "1d393628043594b451adb3e1a4ae9ea9ae6fe114",
+    "shortSha": "1d39362",
+    "message": "feat: add glowing effect to cards and improve mobile responsiveness\n\n- Added glowing-effect.tsx component with animated gradient borders\n- Integrated glowing effect into orbital timeline cards\n- Enhanced mobile responsiveness across the entire app\n- Updated layout and styling for better mobile experience\n- Refactored components for improved performance and maintainability",
+    "author": "Josh Vilensky",
+    "date": "2025-08-06 13:17:25 +0200",
+    "branch": "main"
+  },
+  "screenshots": [
+    {
+      "theme": "light",
+      "viewport": "desktop",
+      "filename": "screenshot-light-desktop.png",
+      "path": "./progress-docs/2025-08-11T19-50-07_1d39362/screenshot-light-desktop.png",
+      "label": "Light Mode - desktop"
+    },
+    {
+      "theme": "light",
+      "viewport": "mobile",
+      "filename": "screenshot-light-mobile.png",
+      "path": "./progress-docs/2025-08-11T19-50-07_1d39362/screenshot-light-mobile.png",
+      "label": "Light Mode - mobile"
+    },
+    {
+      "theme": "dark",
+      "viewport": "desktop",
+      "filename": "screenshot-dark-desktop.png",
+      "path": "./progress-docs/2025-08-11T19-50-07_1d39362/screenshot-dark-desktop.png",
+      "label": "Dark Mode - desktop"
+    },
+    {
+      "theme": "dark",
+      "viewport": "mobile",
+      "filename": "screenshot-dark-mobile.png",
+      "path": "./progress-docs/2025-08-11T19-50-07_1d39362/screenshot-dark-mobile.png",
+      "label": "Dark Mode - mobile"
+    }
+  ],
+  "url": "http://localhost:3000",
+  "notes": {
+    "type": "feature",
+    "summary": "feat: add glowing effect to cards and improve mobile responsiveness",
+    "fullMessage": "feat: add glowing effect to cards and improve mobile responsiveness\n\n- Added glowing-effect.tsx component with animated gradient borders\n- Integrated glowing effect into orbital timeline cards\n- Enhanced mobile responsiveness across the entire app\n- Updated layout and styling for better mobile experience\n- Refactored components for improved performance and maintainability"
+  },
+  "techStack": {
+    "dependencies": [
+      "@radix-ui/react-avatar",
+      "@radix-ui/react-icons",
+      "@radix-ui/react-separator",
+      "@radix-ui/react-slot",
+      "@radix-ui/react-tooltip",
+      "@types/mdx",
+      "class-variance-authority",
+      "clsx",
+      "framer-motion",
+      "gray-matter",
+      "lucide-react",
+      "motion",
+      "next",
+      "next-themes",
+      "react",
+      "react-dom",
+      "react-markdown",
+      "rehype-pretty-code",
+      "rehype-stringify",
+      "remark-gfm",
+      "remark-parse",
+      "remark-rehype",
+      "shiki",
+      "tailwind-merge",
+      "tailwindcss-animate",
+      "unified"
+    ],
+    "devDependencies": [
+      "@tailwindcss/typography",
+      "@types/node",
+      "@types/react",
+      "@types/react-dom",
+      "eslint",
+      "eslint-config-next",
+      "playwright",
+      "postcss",
+      "tailwindcss",
+      "typescript"
+    ],
+    "version": "0.1.0"
+  },
+  "fileChanges": {
+    "changed": [
+      "package.json",
+      "progress-docs/2025-07-30T12-07-40_07425f1/progress.json",
+      "progress-docs/TIMELINE.md",
+      "progress-docs/timeline.json",
+      "src/app/layout.tsx",
+      "src/app/page.tsx",
+      "src/components/ui/glowing-effect.tsx",
+      "src/components/ui/orbital-timeline.tsx",
+      "src/components/work-experience-orbit.tsx"
+    ],
+    "added": [
+      "src/components/ui/glowing-effect.tsx"
+    ],
+    "deleted": []
+  }
+}

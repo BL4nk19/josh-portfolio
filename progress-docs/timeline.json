@@ -1,5 +1,71 @@
 [
   {
+    "id": 3,
+    "timestamp": "2025-08-11T19-50-07",
+    "commit": "1d39362",
+    "message": "feat: add glowing effect to cards and improve mobile responsiveness",
+    "type": "feature",
+    "sessionDir": "2025-08-11T19-50-07_1d39362",
+    "screenshots": {
+      "light": {
+        "desktop": {
+          "filename": "screenshot-light-desktop.png",
+          "path": "./progress-docs/2025-08-11T19-50-07_1d39362/screenshot-light-desktop.png"
+        },
+        "mobile": {
+          "filename": "screenshot-light-mobile.png",
+          "path": "./progress-docs/2025-08-11T19-50-07_1d39362/screenshot-light-mobile.png"
+        }
+      },
+      "dark": {
+        "desktop": {
+          "filename": "screenshot-dark-desktop.png",
+          "path": "./progress-docs/2025-08-11T19-50-07_1d39362/screenshot-dark-desktop.png"
+        },
+        "mobile": {
+          "filename": "screenshot-dark-mobile.png",
+          "path": "./progress-docs/2025-08-11T19-50-07_1d39362/screenshot-dark-mobile.png"
+        }
+      }
+    },
+    "title": "feat: add glowing effect to cards and improve mobile responsiveness",
+    "content": "FEATURE: feat: add glowing effect to cards and improve mobile responsiveness\n\n- Added glowing-effect.tsx component with animated gradient borders\n- Integrated glowing effect into orbital timeline cards\n- Enhanced mobile responsiveness across the entire app\n- Updated layout and styling for better mobile experience\n- Refactored components for improved performance and maintainability",
+    "date": "11/08/2025"
+  },
+  {
+    "id": 2,
+    "timestamp": "2025-08-06T11-20-50",
+    "commit": "1d39362",
+    "message": "feat: add glowing effect to cards and improve mobile responsiveness",
+    "type": "feature",
+    "sessionDir": "2025-08-06T11-20-50_1d39362",
+    "screenshots": {
+      "light": {
+        "desktop": {
+          "filename": "screenshot-light-desktop.png",
+          "path": "./progress-docs/2025-08-06T11-20-50_1d39362/screenshot-light-desktop.png"
+        },
+        "mobile": {
+          "filename": "screenshot-light-mobile.png",
+          "path": "./progress-docs/2025-08-06T11-20-50_1d39362/screenshot-light-mobile.png"
+        }
+      },
+      "dark": {
+        "desktop": {
+          "filename": "screenshot-dark-desktop.png",
+          "path": "./progress-docs/2025-08-06T11-20-50_1d39362/screenshot-dark-desktop.png"
+        },
+        "mobile": {
+          "filename": "screenshot-dark-mobile.png",
+          "path": "./progress-docs/2025-08-06T11-20-50_1d39362/screenshot-dark-mobile.png"
+        }
+      }
+    },
+    "title": "feat: add glowing effect to cards and improve mobile responsiveness",
+    "content": "FEATURE: feat: add glowing effect to cards and improve mobile responsiveness\n\n- Added glowing-effect.tsx component with animated gradient borders\n- Integrated glowing effect into orbital timeline cards\n- Enhanced mobile responsiveness across the entire app\n- Updated layout and styling for better mobile experience\n- Refactored components for improved performance and maintainability",
+    "date": "06/08/2025"
+  },
+  {
     "id": 1,
     "timestamp": "2025-07-30T12-07-40",
     "commit": "07425f1",
