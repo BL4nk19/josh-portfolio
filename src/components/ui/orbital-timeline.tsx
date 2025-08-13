@@ -10,6 +10,7 @@ import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { Input } from "@/components/ui/input";
+import { Component as Orb } from "@/components/ui/orb";
 
 interface ProgressionStep {
   role: string;
@@ -65,7 +66,7 @@ export default function OrbitalTimeline({ items }: OrbitalTimelineProps) {
   const [autoRotate, setAutoRotate] = useState<boolean>(true);
   const [pulseEffect, setPulseEffect] = useState<Record<number, boolean>>({});
   const [activeNodeId, setActiveNodeId] = useState<number | null>(null);
-  const [radius, setRadius] = useState<number>(180);
+  const [radius] = useState<number>(180); // Fixed radius for consistent sizing
   const containerRef = useRef<HTMLDivElement>(null);
   const orbitRef = useRef<HTMLDivElement>(null);
   const nodeRefs = useRef<Record<number, HTMLDivElement | null>>({});
@@ -75,20 +76,6 @@ export default function OrbitalTimeline({ items }: OrbitalTimelineProps) {
   const [passwordInputs, setPasswordInputs] = useState<Record<number, string>>({});
   const [unlockTimers, setUnlockTimers] = useState<Record<number, NodeJS.Timeout>>({});
   const [showPassword, setShowPassword] = useState<Record<number, boolean>>({});
-
-  // Set radius based on screen size
-  useEffect(() => {
-    const updateRadius = () => {
-      if (typeof window !== 'undefined') {
-        const newRadius = window.innerWidth < 640 ? 120 : window.innerWidth < 768 ? 140 : 180;
-        setRadius(newRadius);
-      }
-    };
-
-    updateRadius();
-    window.addEventListener('resize', updateRadius);
-    return () => window.removeEventListener('resize', updateRadius);
-  }, []);
 
   const handleContainerClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === containerRef.current || e.target === orbitRef.current) {
@@ -438,17 +425,18 @@ export default function OrbitalTimeline({ items }: OrbitalTimelineProps) {
           className="absolute w-full h-full flex items-center justify-center transform -translate-y-12 sm:-translate-y-16 md:-translate-y-24"
           ref={orbitRef}
         >
-          {/* Central Node */}
-          <div className="absolute w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-primary/80 via-primary/60 to-primary/40 flex items-center justify-center z-10">
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/40 via-primary/20 to-primary/10 animate-pulse"></div>
-            <div className="absolute w-12 h-12 sm:w-16 sm:h-16 rounded-full border border-primary/20 animate-ping opacity-30" style={{ animationDuration: '3s' }}></div>
-            <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-primary/20 backdrop-blur-md flex items-center justify-center relative z-10">
-              <div className="text-xs font-bold text-primary">J</div>
-            </div>
+          {/* Central Node - WebGL Orb */}
+          <div className="absolute w-16 h-16 rounded-full flex items-center justify-center z-10">
+            <Orb
+              hoverIntensity={0.3}
+              rotateOnHover={true}
+              hue={240}
+              forceHoverState={false}
+            />
           </div>
 
-          {/* Orbit Circle */}
-          <div className="absolute w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] md:w-[360px] md:h-[360px] rounded-full border border-dashed border-muted-foreground/20"></div>
+          {/* Orbit Circle - Fixed size for consistent mobile experience */}
+          <div className="absolute w-[360px] h-[360px] rounded-full border border-dashed border-muted-foreground/20"></div>
 
           {/* Orbital Nodes */}
           {items.map((item, index) => {
