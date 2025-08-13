@@ -1,0 +1,108 @@
+{
+  "timestamp": "2025-08-13T16-12-35",
+  "commit": {
+    "sha": "ef59a04bdde63e15d8c86ade71555242d95642fc",
+    "shortSha": "ef59a04",
+    "message": "feat: implement interactive education display cards with 21st.dev-inspired stacking\n\n- Add EducationDisplayCards component with smooth stacked animations\n- Integrate skills section in two-column layout (Education left, Skills right)\n- Implement 1200ms smooth transitions with custom easing curves\n- Fix card spacing and overlap for better content visibility\n- Add proper hover states and visual hierarchy\n- Prevent layout bleeding and improve responsive design\n- Install 21st.dev display-cards component for reference",
+    "author": "Josh Vilensky",
+    "date": "2025-08-13 15:10:10 +0200",
+    "branch": "main"
+  },
+  "screenshots": [
+    {
+      "theme": "light",
+      "viewport": "desktop",
+      "filename": "screenshot-light-desktop.png",
+      "path": "./progress-docs/2025-08-13T16-12-35_ef59a04/screenshot-light-desktop.png",
+      "label": "Light Mode - desktop"
+    },
+    {
+      "theme": "light",
+      "viewport": "mobile",
+      "filename": "screenshot-light-mobile.png",
+      "path": "./progress-docs/2025-08-13T16-12-35_ef59a04/screenshot-light-mobile.png",
+      "label": "Light Mode - mobile"
+    },
+    {
+      "theme": "dark",
+      "viewport": "desktop",
+      "filename": "screenshot-dark-desktop.png",
+      "path": "./progress-docs/2025-08-13T16-12-35_ef59a04/screenshot-dark-desktop.png",
+      "label": "Dark Mode - desktop"
+    },
+    {
+      "theme": "dark",
+      "viewport": "mobile",
+      "filename": "screenshot-dark-mobile.png",
+      "path": "./progress-docs/2025-08-13T16-12-35_ef59a04/screenshot-dark-mobile.png",
+      "label": "Dark Mode - mobile"
+    }
+  ],
+  "url": "http://localhost:3000",
+  "notes": {
+    "type": "feature",
+    "summary": "feat: implement interactive education display cards with 21st.dev-inspired stacking",
+    "fullMessage": "feat: implement interactive education display cards with 21st.dev-inspired stacking\n\n- Add EducationDisplayCards component with smooth stacked animations\n- Integrate skills section in two-column layout (Education left, Skills right)\n- Implement 1200ms smooth transitions with custom easing curves\n- Fix card spacing and overlap for better content visibility\n- Add proper hover states and visual hierarchy\n- Prevent layout bleeding and improve responsive design\n- Install 21st.dev display-cards component for reference"
+  },
+  "techStack": {
+    "dependencies": [
+      "@radix-ui/react-avatar",
+      "@radix-ui/react-icons",
+      "@radix-ui/react-separator",
+      "@radix-ui/react-slot",
+      "@radix-ui/react-tooltip",
+      "@types/mdx",
+      "class-variance-authority",
+      "clsx",
+      "framer-motion",
+      "gray-matter",
+      "lucide-react",
+      "motion",
+      "next",
+      "next-themes",
+      "react",
+      "react-dom",
+      "react-markdown",
+      "rehype-pretty-code",
+      "rehype-stringify",
+      "remark-gfm",
+      "remark-parse",
+      "remark-rehype",
+      "shiki",
+      "tailwind-merge",
+      "tailwindcss-animate",
+      "unified"
+    ],
+    "devDependencies": [
+      "@tailwindcss/typography",
+      "@types/node",
+      "@types/react",
+      "@types/react-dom",
+      "eslint",
+      "eslint-config-next",
+      "playwright",
+      "postcss",
+      "tailwindcss",
+      "typescript"
+    ],
+    "version": "0.1.0"
+  },
+  "fileChanges": {
+    "changed": [
+      "progress-docs/2025-08-13T13-08-02_530d080/progress.json",
+      "progress-docs/TIMELINE.md",
+      "progress-docs/timeline.json",
+      "src/app/globals.css",
+      "src/app/page.tsx",
+      "src/components/animate-ui/backgrounds/hexagon.tsx",
+      "src/components/education-display-cards.tsx",
+      "src/components/ui/display-cards.tsx"
+    ],
+    "added": [
+      "progress-docs/2025-08-13T13-08-02_530d080/progress.json",
+      "src/components/education-display-cards.tsx",
+      "src/components/ui/display-cards.tsx"
+    ],
+    "deleted": []
+  }
+}

@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <main className="relative flex flex-col min-h-[100dvh] space-y-10">
+    <main className="relative flex flex-col min-h-[100dvh] space-y-6">
       <HexagonBackground 
         className="fixed inset-0 -z-10 opacity-30 dark:opacity-50" 
       />
@@ -84,7 +84,7 @@ export default function Page() {
 </section>
 
       {/* TWO-COLUMN CONTENT SECTION */}
-      <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+      <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start mb-4">
         
         {/* LEFT COLUMN - About Content */}
         <div className="space-y-6 sm:space-y-8">
@@ -111,9 +111,9 @@ export default function Page() {
 
       
       {/* Education & Skills Section */}
-      <section id="education" className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-start">
-        {/* LEFT: Education Display Cards */}
-        <div className="order-2 lg:order-1">
+      <section id="education" className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-start relative -mt-2">
+        {/* LEFT: Education Display Cards - Allow overflow for left positioning */}
+        <div className="order-2 lg:order-1 lg:pr-4 overflow-visible">
           <EducationDisplayCards />
         </div>
         

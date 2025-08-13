@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import BlurFade from "@/components/magicui/blur-fade";
-import { GraduationCap, Calendar, ExternalLink, School, Cloud, Code, Palette, FileText } from "lucide-react";
+import { GraduationCap, Calendar, School } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface EducationItem {
@@ -14,7 +14,7 @@ interface EducationItem {
   description?: string;
   href?: string;
   status: "completed" | "current";
-  type: "education" | "certification";
+  type: "education" | "certification" | "certifications";
   credentialId?: string;
 }
 
@@ -33,58 +33,61 @@ function EducationCard({
   onLeave: () => void;
   style?: React.CSSProperties;
 }) {
-  const getIcon = () => {
-    switch (education.type) {
-      case "education":
-        return <School className="size-5 text-blue-300" />;
-      case "certification":
-        if (education.school.includes("AWS")) return <Cloud className="size-5 text-orange-300" />;
-        if (education.school.includes("Harvard")) return <Code className="size-5 text-red-300" />;
-        if (education.school.includes("Uxcel")) return <Palette className="size-5 text-purple-300" />;
-        if (education.school.includes("Google") || education.school.includes("IxDF")) return <FileText className="size-5 text-green-300" />;
-        return <FileText className="size-5 text-blue-300" />;
-      default:
-        return <School className="size-5 text-blue-300" />;
+  const getLogo = () => {
+    if (education.school.includes("Harvard")) {
+      return <img src="/harvard-logo.svg" alt="Harvard University" className="w-8 h-8" />;
+    } else if (education.school.includes("AWS")) {
+      return <img src="/aws-logo.svg" alt="Amazon Web Services" className="w-8 h-8" />;
+    } else if (education.school.includes("Google")) {
+      return <img src="/google-logo.svg" alt="Google" className="w-8 h-8" />;
+    } else if (education.school.includes("Emirates")) {
+      return <img src="/emirates-logo.svg" alt="Emirates Aviation" className="w-8 h-8" />;
+    } else if (education.school.includes("Uxcel")) {
+      return <img src="/uxcel-logo.svg" alt="Uxcel" className="w-8 h-8" />;
+    } else {
+      return <School className="size-8 text-blue-300" />;
     }
   };
 
-  const getIconBgColor = () => {
-    switch (education.type) {
-      case "education":
-        return "bg-blue-800";
-      case "certification":
-        if (education.school.includes("AWS")) return "bg-orange-800";
-        if (education.school.includes("Harvard")) return "bg-red-800";
-        if (education.school.includes("Uxcel")) return "bg-purple-800";
-        if (education.school.includes("Google") || education.school.includes("IxDF")) return "bg-green-800";
-        return "bg-blue-800";
-      default:
-        return "bg-blue-800";
+  const getBrandColor = () => {
+    if (education.school.includes("Harvard")) {
+      return "#A51C30"; // Harvard Crimson
+    } else if (education.school.includes("AWS")) {
+      return "#FF9900"; // AWS Orange
+    } else if (education.school.includes("Google")) {
+      return "#4285F4"; // Google Blue
+    } else if (education.school.includes("Emirates")) {
+      return "#D71921"; // Emirates Red
+    } else if (education.school.includes("Uxcel")) {
+      return "#6366F1"; // Uxcel Purple
+    } else {
+      return "#3B82F6"; // Default Blue
     }
   };
 
   const getTitleColor = () => {
-    switch (education.type) {
-      case "education":
-        return "text-blue-500";
-      case "certification":
-        if (education.school.includes("AWS")) return "text-orange-500";
-        if (education.school.includes("Harvard")) return "text-red-500";
-        if (education.school.includes("Uxcel")) return "text-purple-500";
-        if (education.school.includes("Google") || education.school.includes("IxDF")) return "text-green-500";
-        return "text-blue-500";
-      default:
-        return "text-blue-500";
+    if (education.school.includes("Harvard")) {
+      return "text-red-600 dark:text-red-400";
+    } else if (education.school.includes("AWS")) {
+      return "text-orange-600 dark:text-orange-400";
+    } else if (education.school.includes("Google")) {
+      return "text-blue-600 dark:text-blue-400";
+    } else if (education.school.includes("Emirates")) {
+      return "text-red-600 dark:text-red-400";
+    } else if (education.school.includes("Uxcel")) {
+      return "text-purple-600 dark:text-purple-400";
+    } else {
+      return "text-blue-600 dark:text-blue-400";
     }
   };
 
   return (
     <div
       className={cn(
-        "relative flex h-52 w-[26rem] -skew-y-[8deg] select-none flex-col justify-between rounded-xl border-2 backdrop-blur-sm px-5 py-4 transition-all duration-[var(--card-transition-duration)] ease-[var(--card-easing)] after:absolute after:-right-1 after:top-[-5%] after:h-[110%] after:w-[20rem] after:bg-gradient-to-l after:from-background after:to-transparent after:content-[''] cursor-pointer [&>*]:flex [&>*]:items-center [&>*]:gap-2",
+        "relative flex w-[24rem] -skew-y-[8deg] select-none flex-col justify-between rounded-xl border-2 backdrop-blur-sm px-5 py-4 transition-all duration-300 ease-in-out after:absolute after:-right-1 after:top-[-5%] after:h-[110%] after:w-[20rem] after:bg-gradient-to-l after:from-background after:to-transparent after:content-[''] cursor-pointer [&>*]:flex [&>*]:items-center [&>*]:gap-2 overflow-hidden",
         isHovered 
-          ? "bg-background/95 border-white/50 shadow-2xl shadow-white/20 scale-110 z-50 transform-gpu" 
-          : "bg-muted/60 border-border/40 hover:border-white/30 hover:bg-muted/80 hover:scale-105 transform-gpu",
+          ? "bg-background/95 border-white/50 shadow-2xl shadow-white/20 scale-110 z-50 transform-gpu h-56" 
+          : "bg-muted/60 border-border/40 hover:border-white/30 hover:bg-muted/80 hover:scale-105 transform-gpu h-44",
         className
       )}
       onMouseEnter={onHover}
@@ -94,9 +97,9 @@ function EducationCard({
       {/* Header */}
       <div className="flex items-start justify-between">
         <div className="flex items-center gap-3">
-          <span className={cn("relative inline-block rounded-full p-2", getIconBgColor())}>
-            {getIcon()}
-          </span>
+          <div className="flex items-center justify-center w-12 h-12">
+            {getLogo()}
+          </div>
           <div>
             <p className={cn("text-lg font-semibold", getTitleColor())}>
               {education.school}
@@ -104,13 +107,9 @@ function EducationCard({
             <div className="flex items-center gap-2 mt-2">
               <Badge 
                 variant="outline" 
-                className={`text-xs ${
-                  education.type === 'education' 
-                    ? 'border-blue-500/30 text-blue-600 dark:text-blue-400' 
-                    : 'border-purple-500/30 text-purple-600 dark:text-purple-400'
-                }`}
+                className="border-2 border-border/60 text-foreground text-xs font-medium px-3 py-1"
               >
-                {education.type === 'education' ? 'Education' : 'Certification'}
+                {education.type === 'education' ? 'Education' : education.type === 'certification' ? 'Certification' : 'Certifications'}
               </Badge>
               {education.status === 'current' && (
                 <Badge variant="default" className="bg-primary/20 text-primary text-xs">
@@ -124,15 +123,12 @@ function EducationCard({
 
       {/* Degree and Period */}
       <div className="space-y-3">
-        <p className="text-base font-medium text-foreground leading-tight">{education.degree}</p>
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <Calendar className="w-4 h-4" />
-            <span>{education.period}</span>
+          <p className="text-base font-medium text-foreground leading-tight flex-1">{education.degree}</p>
+          <div className="flex items-center gap-2 text-sm text-foreground font-medium whitespace-nowrap ml-4">
+            <Calendar className="w-4 h-4 text-primary flex-shrink-0" />
+            <span className="text-foreground">{education.period}</span>
           </div>
-          {education.href && (
-            <ExternalLink className="w-4 h-4 text-muted-foreground hover:text-primary transition-colors" />
-          )}
         </div>
       </div>
 
@@ -140,12 +136,12 @@ function EducationCard({
       <div className="space-y-3">
         {education.credentialId ? (
           <div className="p-3 bg-secondary/30 rounded-md border border-border/40">
-            <p className="text-xs text-muted-foreground font-mono">
+            <p className="text-xs text-muted-foreground font-mono break-all">
               Credential ID: {education.credentialId}
             </p>
           </div>
         ) : (
-          <p className="text-sm text-muted-foreground overflow-hidden text-ellipsis leading-relaxed" style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
+          <p className="text-sm text-muted-foreground leading-relaxed">
             {education.description}
           </p>
         )}
@@ -157,7 +153,7 @@ function EducationCard({
 export function EducationDisplayCards() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
-  // Josh's refined education and certification data - 5 cards only
+  // Josh's refined education and certification data - 5 cards
   const educationData: EducationItem[] = [
     {
       id: 1,
@@ -171,21 +167,21 @@ export function EducationDisplayCards() {
     },
     {
       id: 2,
-      school: "Google / IxDF",
+      school: "Google & IxDF",
       degree: "UX Design Professional Certificates",
-      period: "2020-2021",
+      period: "2020-2023",
       description: "Professional UX design certification covering research, prototyping, and design thinking methodologies.",
       status: "completed",
-      type: "certification",
+      type: "certifications",
       href: "https://www.interaction-design.org"
     },
     {
       id: 3,
       school: "Amazon Web Services (AWS)",
       degree: "AWS Certified Cloud Practitioner",
-      period: "Aug 2025 - Aug 2028",
+      period: "Valid 2022 - 2028",
       description: "Foundational AWS certification covering cloud concepts, security, and core AWS services.",
-      status: "current",
+      status: "completed",
       type: "certification",
       href: "https://aws.amazon.com/certification",
       credentialId: "AWS-CCP-2025-001"
@@ -194,10 +190,10 @@ export function EducationDisplayCards() {
       id: 4,
       school: "Uxcel",
       degree: "Product Design & UX Courses",
-      period: "2023-2024",
+      period: "2023 - Now",
       description: "Comprehensive UX design programme with 25+ completed courses covering the full design process.",
       status: "completed",
-      type: "certification",
+      type: "certifications",
       href: "https://uxcel.com"
     },
     {
@@ -213,14 +209,14 @@ export function EducationDisplayCards() {
     }
   ];
 
-  // Create the stacked cards with proper transform classes - 5 cards only
+  // Create the stacked cards with LEFT-SIDE positioning and proper fan-out stacking for 5 cards
   const stackedCards = [
     {
       education: educationData[0], // Emirates Aviation College (back)
       className: "[grid-area:stack] translate-x-0 translate-y-0 hover:-translate-y-20",
     },
     {
-      education: educationData[1], // Google / IxDF
+      education: educationData[1], // Google & IxDF
       className: "[grid-area:stack] translate-x-16 translate-y-8 hover:-translate-y-16",
     },
     {
@@ -234,11 +230,11 @@ export function EducationDisplayCards() {
     {
       education: educationData[4], // Harvard CS50 (front)
       className: "[grid-area:stack] translate-x-64 translate-y-32 hover:-translate-y-4",
-    },
+    }
   ];
 
   return (
-    <div className="w-full space-y-8">
+    <div className="w-full space-y-4">
       <BlurFade delay={0.2}>
         <div className="text-center space-y-3">
           <h2 className="text-xl sm:text-2xl font-bold flex items-center justify-center gap-2">
@@ -251,10 +247,10 @@ export function EducationDisplayCards() {
         </div>
       </BlurFade>
 
-      {/* Stacked Cards Container */}
-      <div className="flex justify-start pl-4">
+      {/* Stacked Cards Container - LEFT-SIDE POSITIONING */}
+      <div className="flex justify-start -ml-4 lg:-ml-8 xl:-ml-12 2xl:-ml-16">
         <div 
-          className="grid [grid-template-areas:'stack'] place-items-center opacity-100 animate-in fade-in-0 duration-700 min-h-[450px] max-w-[700px]"
+          className="grid [grid-template-areas:'stack'] place-items-center opacity-100 animate-in fade-in-0 duration-700 min-h-[400px] max-w-[700px] scale-85 lg:scale-90 xl:scale-95"
         >
           {stackedCards.map(({ education, className }, index) => (
             <EducationCard
