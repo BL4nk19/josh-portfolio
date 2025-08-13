@@ -72,6 +72,30 @@
     }
     body {
       @apply bg-background text-foreground;
+      transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                 color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    /* Smooth transitions for theme-aware elements */
+    html {
+      transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .bg-background,
+    .bg-card,
+    .bg-popover,
+    .bg-muted,
+    .bg-accent {
+      transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .text-foreground,
+    .text-muted-foreground {
+      transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .border-border {
+      transition: border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
   }
 

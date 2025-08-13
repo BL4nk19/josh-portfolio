@@ -8,9 +8,11 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
 import { WorkExperienceOrbit } from "@/components/work-experience-orbit";
+import { EducationDisplayCards } from "@/components/education-display-cards";
 import Link from "next/link";
 import Markdown from "react-markdown";
 import { HexagonBackground } from '@/components/animate-ui/backgrounds/hexagon'; 
+import { Code } from "lucide-react";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -30,7 +32,9 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <main className="relative flex flex-col min-h-[100dvh] space-y-10">
-      <HexagonBackground className="fixed inset-0 -z-10 opacity-30 dark:opacity-50" />
+      <HexagonBackground 
+        className="fixed inset-0 -z-10 opacity-30 dark:opacity-50" 
+      />
       
       {/* HERO SECTION - Mobile First Responsive */}
 <section id="hero" className="flex flex-col items-center justify-center min-h-[60vh] space-y-6 sm:space-y-8">
@@ -106,44 +110,75 @@ export default function Page() {
 
 
       
-      <section id="education">
-        <div className="flex min-h-0 flex-col gap-y-3">
-          <BlurFade delay={BLUR_FADE_DELAY * 8}>
-            <h2 className="text-xl font-bold">Education</h2>
-          </BlurFade>
-          {DATA.education.map((education, id) => (
-            <BlurFade
-              key={education.school}
-              delay={BLUR_FADE_DELAY * 9 + id * 0.05}
-            >
-              <ResumeCard
-                key={education.school}
-                href={education.href}
-                logoUrl={education.logoUrl}
-                altText={education.school}
-                title={education.school}
-                subtitle={education.degree}
-                period={`${education.start} - ${education.end}`}
-              />
-            </BlurFade>
-          ))}
+      {/* Education & Skills Section */}
+      <section id="education" className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-start">
+        {/* LEFT: Education Display Cards */}
+        <div className="order-2 lg:order-1">
+          <EducationDisplayCards />
         </div>
-      </section>
-      
-      <section id="skills">
-        <div className="flex min-h-0 flex-col gap-y-3">
-          <BlurFade delay={BLUR_FADE_DELAY * 10}>
-            <h2 className="text-xl font-bold">Skills</h2>
+        
+        {/* RIGHT: Skills Section */}
+        <div className="order-1 lg:order-2 space-y-8 lg:pl-8">
+          <BlurFade delay={0.1}>
+            <div className="text-center space-y-3">
+              <h2 className="text-xl sm:text-2xl font-bold flex items-center justify-center gap-2">
+                <Code className="w-6 h-6 text-primary" />
+                Skills
+              </h2>
+              <p className="text-xs sm:text-sm text-muted-foreground">
+                Core competencies that drive exceptional user experiences
+              </p>
+            </div>
           </BlurFade>
-          <div className="flex flex-wrap gap-1">
-            {DATA.skills.map((skill, id) => (
-              <BlurFade key={skill} delay={BLUR_FADE_DELAY * 11 + id * 0.05}>
-                <Badge key={skill}>{skill}</Badge>
-              </BlurFade>
-            ))}
+
+          <div className="grid grid-cols-2 gap-8">
+            {/* Design Skills */}
+            <div className="space-y-4">
+              <h3 className="text-sm font-semibold text-primary">Design</h3>
+              <div className="flex flex-wrap gap-3">
+                <Badge variant="secondary" className="text-xs px-3 py-1">UX Research</Badge>
+                <Badge variant="secondary" className="text-xs px-3 py-1">UI Design</Badge>
+                <Badge variant="secondary" className="text-xs px-3 py-1">Design Systems</Badge>
+                <Badge variant="secondary" className="text-xs px-3 py-1">Prototyping</Badge>
+              </div>
+            </div>
+
+            {/* Development Skills */}
+            <div className="space-y-4">
+              <h3 className="text-sm font-semibold text-primary">Development</h3>
+              <div className="flex flex-wrap gap-3">
+                <Badge variant="secondary" className="text-xs px-3 py-1">React</Badge>
+                <Badge variant="secondary" className="text-xs px-3 py-1">TypeScript</Badge>
+                <Badge variant="secondary" className="text-xs px-3 py-1">Next.js</Badge>
+                <Badge variant="secondary" className="text-xs px-3 py-1">Tailwind CSS</Badge>
+              </div>
+            </div>
+
+            {/* Leadership Skills */}
+            <div className="space-y-4">
+              <h3 className="text-sm font-semibold text-primary">Leadership</h3>
+              <div className="flex flex-wrap gap-3">
+                <Badge variant="secondary" className="text-xs px-3 py-1">Team Management</Badge>
+                <Badge variant="secondary" className="text-xs px-3 py-1">Design Strategy</Badge>
+                <Badge variant="secondary" className="text-xs px-3 py-1">Stakeholder Communication</Badge>
+              </div>
+            </div>
+
+            {/* Process Skills */}
+            <div className="space-y-4">
+              <h3 className="text-sm font-semibold text-primary">Process</h3>
+              <div className="flex flex-wrap gap-3">
+                <Badge variant="secondary" className="text-xs px-3 py-1">Design Thinking</Badge>
+                <Badge variant="secondary" className="text-xs px-3 py-1">User Testing</Badge>
+                <Badge variant="secondary" className="text-xs px-3 py-1">Analytics</Badge>
+                <Badge variant="secondary" className="text-xs px-3 py-1">Iteration</Badge>
+              </div>
+            </div>
           </div>
         </div>
       </section>
+      
+      {/* Skills section has been moved to the left side of the education section above */}
       
       <section id="projects">
         <div className="space-y-12 w-full py-12">

@@ -1,5 +1,38 @@
 [
   {
+    "id": 4,
+    "timestamp": "2025-08-13T13-08-02",
+    "commit": "530d080",
+    "message": "feat: V4 orbital timeline with enhanced career data & polished locked state",
+    "type": "feature",
+    "sessionDir": "2025-08-13T13-08-02_530d080",
+    "screenshots": {
+      "light": {
+        "desktop": {
+          "filename": "screenshot-light-desktop.png",
+          "path": "./progress-docs/2025-08-13T13-08-02_530d080/screenshot-light-desktop.png"
+        },
+        "mobile": {
+          "filename": "screenshot-light-mobile.png",
+          "path": "./progress-docs/2025-08-13T13-08-02_530d080/screenshot-light-mobile.png"
+        }
+      },
+      "dark": {
+        "desktop": {
+          "filename": "screenshot-dark-desktop.png",
+          "path": "./progress-docs/2025-08-13T13-08-02_530d080/screenshot-dark-desktop.png"
+        },
+        "mobile": {
+          "filename": "screenshot-dark-mobile.png",
+          "path": "./progress-docs/2025-08-13T13-08-02_530d080/screenshot-dark-mobile.png"
+        }
+      }
+    },
+    "title": "feat: V4 orbital timeline with enhanced career data & polished locked state",
+    "content": "FEATURE: feat: V4 orbital timeline with enhanced career data & polished locked state\n\n- Added 5th career node with progressive data structure\n- Enhanced Old Mutual node with internal career progression stepper\n- Integrated rich achievements and metrics from resume data\n- Streamlined homepage by removing redundant work experience section\n- Implemented password protection for confidential projects node\n- Added polished locked state with proper card height matching unlocked cards\n- Cleaned up locked state copy and removed redundant content\n- Added subtle security note with session timeout info",
+    "date": "13/08/2025"
+  },
+  {
     "id": 3,
     "timestamp": "2025-08-11T19-50-07",
     "commit": "1d39362",

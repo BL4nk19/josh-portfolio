@@ -1,0 +1,110 @@
+{
+  "timestamp": "2025-08-13T13-08-02",
+  "commit": {
+    "sha": "530d08024d27d3b5bbaa0cae2f3e3857f1f4c014",
+    "shortSha": "530d080",
+    "message": "feat: V4 orbital timeline with enhanced career data & polished locked state\n\n- Added 5th career node with progressive data structure\n- Enhanced Old Mutual node with internal career progression stepper\n- Integrated rich achievements and metrics from resume data\n- Streamlined homepage by removing redundant work experience section\n- Implemented password protection for confidential projects node\n- Added polished locked state with proper card height matching unlocked cards\n- Cleaned up locked state copy and removed redundant content\n- Added subtle security note with session timeout info",
+    "author": "Josh Vilensky",
+    "date": "2025-08-11 21:50:54 +0200",
+    "branch": "main"
+  },
+  "screenshots": [
+    {
+      "theme": "light",
+      "viewport": "desktop",
+      "filename": "screenshot-light-desktop.png",
+      "path": "./progress-docs/2025-08-13T13-08-02_530d080/screenshot-light-desktop.png",
+      "label": "Light Mode - desktop"
+    },
+    {
+      "theme": "light",
+      "viewport": "mobile",
+      "filename": "screenshot-light-mobile.png",
+      "path": "./progress-docs/2025-08-13T13-08-02_530d080/screenshot-light-mobile.png",
+      "label": "Light Mode - mobile"
+    },
+    {
+      "theme": "dark",
+      "viewport": "desktop",
+      "filename": "screenshot-dark-desktop.png",
+      "path": "./progress-docs/2025-08-13T13-08-02_530d080/screenshot-dark-desktop.png",
+      "label": "Dark Mode - desktop"
+    },
+    {
+      "theme": "dark",
+      "viewport": "mobile",
+      "filename": "screenshot-dark-mobile.png",
+      "path": "./progress-docs/2025-08-13T13-08-02_530d080/screenshot-dark-mobile.png",
+      "label": "Dark Mode - mobile"
+    }
+  ],
+  "url": "http://localhost:3000",
+  "notes": {
+    "type": "feature",
+    "summary": "feat: V4 orbital timeline with enhanced career data & polished locked state",
+    "fullMessage": "feat: V4 orbital timeline with enhanced career data & polished locked state\n\n- Added 5th career node with progressive data structure\n- Enhanced Old Mutual node with internal career progression stepper\n- Integrated rich achievements and metrics from resume data\n- Streamlined homepage by removing redundant work experience section\n- Implemented password protection for confidential projects node\n- Added polished locked state with proper card height matching unlocked cards\n- Cleaned up locked state copy and removed redundant content\n- Added subtle security note with session timeout info"
+  },
+  "techStack": {
+    "dependencies": [
+      "@radix-ui/react-avatar",
+      "@radix-ui/react-icons",
+      "@radix-ui/react-separator",
+      "@radix-ui/react-slot",
+      "@radix-ui/react-tooltip",
+      "@types/mdx",
+      "class-variance-authority",
+      "clsx",
+      "framer-motion",
+      "gray-matter",
+      "lucide-react",
+      "motion",
+      "next",
+      "next-themes",
+      "react",
+      "react-dom",
+      "react-markdown",
+      "rehype-pretty-code",
+      "rehype-stringify",
+      "remark-gfm",
+      "remark-parse",
+      "remark-rehype",
+      "shiki",
+      "tailwind-merge",
+      "tailwindcss-animate",
+      "unified"
+    ],
+    "devDependencies": [
+      "@tailwindcss/typography",
+      "@types/node",
+      "@types/react",
+      "@types/react-dom",
+      "eslint",
+      "eslint-config-next",
+      "playwright",
+      "postcss",
+      "tailwindcss",
+      "typescript"
+    ],
+    "version": "0.1.0"
+  },
+  "fileChanges": {
+    "changed": [
+      ".cursorrules",
+      "progress-docs/2025-08-06T11-20-50_1d39362/progress.json",
+      "progress-docs/2025-08-11T19-50-07_1d39362/progress.json",
+      "progress-docs/TIMELINE.md",
+      "progress-docs/timeline.json",
+      "src/app/page.tsx",
+      "src/components/ui/input.tsx",
+      "src/components/ui/orbital-timeline.tsx",
+      "src/components/work-experience-orbit.tsx"
+    ],
+    "added": [
+      ".cursorrules",
+      "progress-docs/2025-08-06T11-20-50_1d39362/progress.json",
+      "progress-docs/2025-08-11T19-50-07_1d39362/progress.json",
+      "src/components/ui/input.tsx"
+    ],
+    "deleted": []
+  }
+}
