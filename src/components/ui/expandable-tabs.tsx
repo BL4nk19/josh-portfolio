@@ -25,6 +25,7 @@ interface ExpandableTabsProps {
   className?: string;
   activeColor?: string;
   onChange?: (index: number | null) => void;
+  defaultSelected?: number;
 }
 
 const buttonVariants = {
@@ -53,13 +54,16 @@ export function ExpandableTabs({
   className,
   activeColor = "text-primary",
   onChange,
+  defaultSelected = 0,
 }: ExpandableTabsProps) {
-  const [selected, setSelected] = React.useState<number | null>(null);
+  const [selected, setSelected] = React.useState<number | null>(defaultSelected);
   const outsideClickRef = React.useRef(null);
 
+
+
   useOnClickOutside(outsideClickRef, () => {
-    setSelected(null);
-    onChange?.(null);
+    // Don't reset selection on outside click - keep the current tab selected
+    // This prevents interference with the tab switching logic
   });
 
   const handleSelect = (index: number) => {

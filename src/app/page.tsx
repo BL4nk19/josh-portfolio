@@ -14,7 +14,8 @@ import { SkillsToolsSection } from "@/components/skills-tools-section";
 import Link from "next/link";
 import Markdown from "react-markdown";
 import { HexagonBackground } from '@/components/animate-ui/backgrounds/hexagon'; 
-import { Code } from "lucide-react";
+import { Code, Users } from "lucide-react";
+import { Highlighter } from "@/components/magicui/highlighter";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -92,13 +93,34 @@ export default function Page() {
         <div className="space-y-6 sm:space-y-8">
           <BlurFade delay={BLUR_FADE_DELAY * 4}>
             <div className="space-y-4 sm:space-y-6">
-              <h2 className="text-2xl sm:text-3xl font-bold">About Me</h2>
-              <div className="space-y-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
-                {DATA.summary.split('\n\n').map((paragraph, index) => (
-                  <p key={index} className="text-pretty">
-                    {paragraph}
-                  </p>
-                ))}
+              <h2 className="text-xl sm:text-2xl font-bold">About Me</h2>
+              
+              {/* Content - left aligned */}
+              <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <p className="text-pretty">
+                  Dynamic Product Design leader specialising in fintech innovation,
+                  with proven ability to transform complex financial services
+                  requirements into intuitive digital experiences.
+                </p>
+                <p className="text-pretty">
+                  Currently serving as Lead Product Designer at Old Mutual Bank,
+                  where I&apos;ve established robust design processes across multiple
+                  squads and mentored high-performing teams. I&apos;ve also worked with
+                  AI startups, providing design direction and concepts for their
+                  diverse product offerings - from chatbots and business integrations
+                  to specialised pharmaceutical mobile applications.
+                </p>
+                <p className="text-pretty">
+                  Outside of work, I&apos;m a curious soul who devours everything from
+                  design theory to emerging tech trends. You&apos;ll find me maintaining
+                  discipline at the gym, attempting (badly) to master the guitar, and
+                  constantly exploring whatever piques my interest - hence this
+                  portfolio site where{" "}
+                  <Highlighter action="underline" color="#E3F2FD">
+                    I&apos;m building an interactive app-like experience
+                  </Highlighter>{" "}
+                  with AI integrations and experimental features.
+                </p>
               </div>
             </div>
           </BlurFade>
@@ -115,12 +137,12 @@ export default function Page() {
       {/* Education & Skills Section */}
       <section id="education" className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-start relative -mt-2">
         {/* LEFT: Education Display Cards */}
-        <div className="order-2 lg:order-1 lg:pr-4 overflow-visible">
+        <div className="order-1 lg:order-1 lg:pr-4 overflow-visible">
           <EducationDisplayCards />
         </div>
         
         {/* RIGHT: Skills & Tools Section */}
-        <div className="order-1 lg:order-2 lg:pl-8">
+        <div className="order-2 lg:order-2 lg:pl-8">
           <SkillsToolsSection />
         </div>
       </section>
@@ -128,21 +150,7 @@ export default function Page() {
       <section id="projects">
         <div className="space-y-12 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 12}>
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-                  My Projects
-                </div>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                  Check out my latest work
-                </h2>
-                <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  I&apos;ve worked on a variety of projects, from simple
-                  websites to complex web applications. Here are a few of my
-                  favorites.
-                </p>
-              </div>
-            </div>
+            <h2 className="text-2xl font-bold tracking-tight text-center">Check out my latest work</h2>
           </BlurFade>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {DATA.projects.map((project, id) => (
@@ -170,24 +178,17 @@ export default function Page() {
       <section id="contact">
         <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 14}>
-            <div className="space-y-3">
-              <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-                Contact
-              </div>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                Get in Touch
-              </h2>
-              <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Want to chat? Just shoot me a dm{" "}
-                <Link
-                  href={DATA.contact.social.LinkedIn.url}
-                  className="text-blue-500 hover:underline"
-                >
-                  with a direct question on LinkedIn
-                </Link>{" "}
-                and I&apos;ll respond whenever I can. Professional enquiries welcome.
-              </p>
-            </div>
+            <h2 className="text-2xl font-bold tracking-tight text-center">Get in Touch</h2>
+            <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              Want to chat? Just shoot me a dm{" "}
+              <Link
+                href={DATA.contact.social.LinkedIn.url}
+                className="text-blue-500 hover:underline"
+              >
+                with a direct question on LinkedIn
+              </Link>{" "}
+              and I&apos;ll respond whenever I can. Professional enquiries welcome.
+            </p>
           </BlurFade>
         </div>
       </section>

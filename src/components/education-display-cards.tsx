@@ -237,14 +237,12 @@ export function EducationDisplayCards() {
   return (
     <div className="w-full space-y-4">
       <BlurFade delay={0.2}>
-        <div className="text-center space-y-3">
-          <h2 className="text-xl sm:text-2xl font-bold flex items-center justify-center gap-2">
-            <GraduationCap className="w-6 h-6 text-primary" />
-            Education & Certifications
-          </h2>
-          <p className="text-xs sm:text-sm text-muted-foreground">
-            Academic foundation and professional credentials that drive innovation
-          </p>
+        <div className="text-center space-y-6">
+          <h2 className="text-xl sm:text-2xl font-bold tracking-tight">Education & Certifications</h2>
+          <div className="inline-flex items-center rounded-full bg-background border px-4 py-2 text-sm font-medium shadow-sm">
+            <span className="text-muted-foreground">Currently Exploring:</span>
+            <span className="ml-2 text-primary">Design Engineering</span>
+          </div>
         </div>
       </BlurFade>
 

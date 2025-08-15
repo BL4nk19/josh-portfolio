@@ -1,0 +1,118 @@
+{
+  "timestamp": "2025-08-15T16-23-07",
+  "commit": {
+    "sha": "d09e0d29a05b441f4d28bb94492a96e70f7c36cb",
+    "shortSha": "d09e0d2",
+    "message": "feat: implement comprehensive performance optimization system and fix marquee jitter\n\n- Add global performance mode hook for adaptive animations\n- Create performance-optimized hexagon background component\n- Implement smart performance detection during user interactions\n- Fix marquee rubber banding with seamless infinite loops\n- Add expandable tabs component for skills/tools toggle\n- Optimize Framer Motion spring physics for buttery smooth motion\n- Update skills content with accurate professional descriptions\n- Add Figma icon to icon component library\n- Implement CSS mask gradients for smooth edge fading\n- Create adaptive animation system based on user activity\n\nPerformance improvements:\n- Background animations simplify during interactions\n- IconCloud becomes ultra-responsive in performance mode\n- Skills marquee adapts speed and travel distance\n- Reduced GPU load during heavy user interactions\n- Smooth transitions between performance modes",
+    "author": "Josh Vilensky",
+    "date": "2025-08-15 15:13:18 +0200",
+    "branch": "main"
+  },
+  "screenshots": [
+    {
+      "theme": "light",
+      "viewport": "desktop",
+      "filename": "screenshot-light-desktop.png",
+      "path": "./progress-docs/2025-08-15T16-23-07_d09e0d2/screenshot-light-desktop.png",
+      "label": "Light Mode - desktop"
+    },
+    {
+      "theme": "light",
+      "viewport": "mobile",
+      "filename": "screenshot-light-mobile.png",
+      "path": "./progress-docs/2025-08-15T16-23-07_d09e0d2/screenshot-light-mobile.png",
+      "label": "Light Mode - mobile"
+    },
+    {
+      "theme": "dark",
+      "viewport": "desktop",
+      "filename": "screenshot-dark-desktop.png",
+      "path": "./progress-docs/2025-08-15T16-23-07_d09e0d2/screenshot-dark-desktop.png",
+      "label": "Dark Mode - desktop"
+    },
+    {
+      "theme": "dark",
+      "viewport": "mobile",
+      "filename": "screenshot-dark-mobile.png",
+      "path": "./progress-docs/2025-08-15T16-23-07_d09e0d2/screenshot-dark-mobile.png",
+      "label": "Dark Mode - mobile"
+    }
+  ],
+  "url": "http://localhost:3000",
+  "notes": {
+    "type": "feature",
+    "summary": "feat: implement comprehensive performance optimization system and fix marquee jitter",
+    "fullMessage": "feat: implement comprehensive performance optimization system and fix marquee jitter\n\n- Add global performance mode hook for adaptive animations\n- Create performance-optimized hexagon background component\n- Implement smart performance detection during user interactions\n- Fix marquee rubber banding with seamless infinite loops\n- Add expandable tabs component for skills/tools toggle\n- Optimize Framer Motion spring physics for buttery smooth motion\n- Update skills content with accurate professional descriptions\n- Add Figma icon to icon component library\n- Implement CSS mask gradients for smooth edge fading\n- Create adaptive animation system based on user activity\n\nPerformance improvements:\n- Background animations simplify during interactions\n- IconCloud becomes ultra-responsive in performance mode\n- Skills marquee adapts speed and travel distance\n- Reduced GPU load during heavy user interactions\n- Smooth transitions between performance modes"
+  },
+  "techStack": {
+    "dependencies": [
+      "@radix-ui/react-avatar",
+      "@radix-ui/react-icons",
+      "@radix-ui/react-separator",
+      "@radix-ui/react-tooltip",
+      "@types/mdx",
+      "class-variance-authority",
+      "clsx",
+      "framer-motion",
+      "gray-matter",
+      "lucide-react",
+      "motion",
+      "next",
+      "next-themes",
+      "ogl",
+      "react",
+      "react-dom",
+      "react-icon-cloud",
+      "react-markdown",
+      "rehype-pretty-code",
+      "rehype-stringify",
+      "remark-gfm",
+      "remark-parse",
+      "remark-rehype",
+      "rough-notation",
+      "shiki",
+      "tailwind-merge",
+      "tailwindcss-animate",
+      "unified",
+      "usehooks-ts"
+    ],
+    "devDependencies": [
+      "@tailwindcss/typography",
+      "@types/node",
+      "@types/react",
+      "@types/react-dom",
+      "eslint",
+      "eslint-config-next",
+      "playwright",
+      "postcss",
+      "tailwindcss",
+      "typescript"
+    ],
+    "version": "0.1.0"
+  },
+  "fileChanges": {
+    "changed": [
+      "package-lock.json",
+      "package.json",
+      "progress-docs/2025-08-13T18-51-10_4b321f8/progress.json",
+      "progress-docs/2025-08-15T13-06-39_4b321f8/progress.json",
+      "progress-docs/TIMELINE.md",
+      "progress-docs/timeline.json",
+      "src/app/page.tsx",
+      "src/components/animate-ui/backgrounds/hexagon-optimized.tsx",
+      "src/components/icons.tsx",
+      "src/components/skills-tools-section.tsx",
+      "src/components/ui/expandable-tabs.tsx",
+      "src/hooks/use-performance-mode.ts"
+    ],
+    "added": [
+      "progress-docs/2025-08-13T18-51-10_4b321f8/progress.json",
+      "progress-docs/2025-08-15T13-06-39_4b321f8/progress.json",
+      "src/components/animate-ui/backgrounds/hexagon-optimized.tsx",
+      "src/components/skills-tools-section.tsx",
+      "src/components/ui/expandable-tabs.tsx",
+      "src/hooks/use-performance-mode.ts"
+    ],
+    "deleted": []
+  }
+}

@@ -67,7 +67,7 @@ export default function Navbar() {
             </TooltipTrigger>
             <TooltipContent>
               <p>Theme</p>
-            </TooltipContent>
+              </TooltipContent>
           </Tooltip>
         </DockIcon>
       </Dock>

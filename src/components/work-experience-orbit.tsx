@@ -204,12 +204,7 @@ export function WorkExperienceOrbit() {
   return (
     <div className="w-full h-full min-h-[50px]">
       <BlurFade delay={0.2}>
-        <div className="text-center space-y-2 mb-4">
-          <h2 className="text-xl sm:text-2xl font-bold">Career Journey</h2>
-          <p className="text-xs sm:text-sm text-muted-foreground max-w-md mx-auto">
-            Interactive timeline of my recent career - click each node to explore
-          </p>
-        </div>
+                  <h2 className="text-2xl font-bold tracking-tight text-center mb-4">Career Journey</h2>
       </BlurFade>
       
       <BlurFade delay={0.4}>
