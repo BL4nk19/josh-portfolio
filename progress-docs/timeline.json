@@ -1,5 +1,71 @@
 [
   {
+    "id": 7,
+    "timestamp": "2025-08-15T13-06-39",
+    "commit": "4b321f8",
+    "message": "feat: replace central J with WebGL orb and fix mobile orbit responsiveness",
+    "type": "feature",
+    "sessionDir": "2025-08-15T13-06-39_4b321f8",
+    "screenshots": {
+      "light": {
+        "desktop": {
+          "filename": "screenshot-light-desktop.png",
+          "path": "./progress-docs/2025-08-15T13-06-39_4b321f8/screenshot-light-desktop.png"
+        },
+        "mobile": {
+          "filename": "screenshot-light-mobile.png",
+          "path": "./progress-docs/2025-08-15T13-06-39_4b321f8/screenshot-light-mobile.png"
+        }
+      },
+      "dark": {
+        "desktop": {
+          "filename": "screenshot-dark-desktop.png",
+          "path": "./progress-docs/2025-08-15T13-06-39_4b321f8/screenshot-dark-desktop.png"
+        },
+        "mobile": {
+          "filename": "screenshot-dark-mobile.png",
+          "path": "./progress-docs/2025-08-15T13-06-39_4b321f8/screenshot-dark-mobile.png"
+        }
+      }
+    },
+    "title": "feat: replace central J with WebGL orb and fix mobile orbit responsiveness",
+    "content": "FEATURE: feat: replace central J with WebGL orb and fix mobile orbit responsiveness\n\n- Add new WebGL orb component using OGL library\n- Replace basic pulsing J with interactive shader-based orb\n- Fix mobile orbit radius to be static (180px) across all screen sizes\n- Maintain all existing orbital timeline functionality\n- Add hover effects and smooth rotation to orb",
+    "date": "15/08/2025"
+  },
+  {
+    "id": 6,
+    "timestamp": "2025-08-13T18-51-10",
+    "commit": "4b321f8",
+    "message": "feat: replace central J with WebGL orb and fix mobile orbit responsiveness",
+    "type": "feature",
+    "sessionDir": "2025-08-13T18-51-10_4b321f8",
+    "screenshots": {
+      "light": {
+        "desktop": {
+          "filename": "screenshot-light-desktop.png",
+          "path": "./progress-docs/2025-08-13T18-51-10_4b321f8/screenshot-light-desktop.png"
+        },
+        "mobile": {
+          "filename": "screenshot-light-mobile.png",
+          "path": "./progress-docs/2025-08-13T18-51-10_4b321f8/screenshot-light-mobile.png"
+        }
+      },
+      "dark": {
+        "desktop": {
+          "filename": "screenshot-dark-desktop.png",
+          "path": "./progress-docs/2025-08-13T18-51-10_4b321f8/screenshot-dark-desktop.png"
+        },
+        "mobile": {
+          "filename": "screenshot-dark-mobile.png",
+          "path": "./progress-docs/2025-08-13T18-51-10_4b321f8/screenshot-dark-mobile.png"
+        }
+      }
+    },
+    "title": "feat: replace central J with WebGL orb and fix mobile orbit responsiveness",
+    "content": "FEATURE: feat: replace central J with WebGL orb and fix mobile orbit responsiveness\n\n- Add new WebGL orb component using OGL library\n- Replace basic pulsing J with interactive shader-based orb\n- Fix mobile orbit radius to be static (180px) across all screen sizes\n- Maintain all existing orbital timeline functionality\n- Add hover effects and smooth rotation to orb",
+    "date": "13/08/2025"
+  },
+  {
     "id": 5,
     "timestamp": "2025-08-13T16-12-35",
     "commit": "ef59a04",

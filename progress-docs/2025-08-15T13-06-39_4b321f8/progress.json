@@ -1,0 +1,106 @@
+{
+  "timestamp": "2025-08-15T13-06-39",
+  "commit": {
+    "sha": "4b321f89c4314acc2a4721752f8638f66f20b948",
+    "shortSha": "4b321f8",
+    "message": "feat: replace central J with WebGL orb and fix mobile orbit responsiveness\n\n- Add new WebGL orb component using OGL library\n- Replace basic pulsing J with interactive shader-based orb\n- Fix mobile orbit radius to be static (180px) across all screen sizes\n- Maintain all existing orbital timeline functionality\n- Add hover effects and smooth rotation to orb",
+    "author": "Josh Vilensky",
+    "date": "2025-08-13 20:50:21 +0200",
+    "branch": "main"
+  },
+  "screenshots": [
+    {
+      "theme": "light",
+      "viewport": "desktop",
+      "filename": "screenshot-light-desktop.png",
+      "path": "./progress-docs/2025-08-15T13-06-39_4b321f8/screenshot-light-desktop.png",
+      "label": "Light Mode - desktop"
+    },
+    {
+      "theme": "light",
+      "viewport": "mobile",
+      "filename": "screenshot-light-mobile.png",
+      "path": "./progress-docs/2025-08-15T13-06-39_4b321f8/screenshot-light-mobile.png",
+      "label": "Light Mode - mobile"
+    },
+    {
+      "theme": "dark",
+      "viewport": "desktop",
+      "filename": "screenshot-dark-desktop.png",
+      "path": "./progress-docs/2025-08-15T13-06-39_4b321f8/screenshot-dark-desktop.png",
+      "label": "Dark Mode - desktop"
+    },
+    {
+      "theme": "dark",
+      "viewport": "mobile",
+      "filename": "screenshot-dark-mobile.png",
+      "path": "./progress-docs/2025-08-15T13-06-39_4b321f8/screenshot-dark-mobile.png",
+      "label": "Dark Mode - mobile"
+    }
+  ],
+  "url": "http://localhost:3000",
+  "notes": {
+    "type": "feature",
+    "summary": "feat: replace central J with WebGL orb and fix mobile orbit responsiveness",
+    "fullMessage": "feat: replace central J with WebGL orb and fix mobile orbit responsiveness\n\n- Add new WebGL orb component using OGL library\n- Replace basic pulsing J with interactive shader-based orb\n- Fix mobile orbit radius to be static (180px) across all screen sizes\n- Maintain all existing orbital timeline functionality\n- Add hover effects and smooth rotation to orb"
+  },
+  "techStack": {
+    "dependencies": [
+      "@radix-ui/react-avatar",
+      "@radix-ui/react-icons",
+      "@radix-ui/react-separator",
+      "@radix-ui/react-slot",
+      "@radix-ui/react-tooltip",
+      "@types/mdx",
+      "class-variance-authority",
+      "clsx",
+      "framer-motion",
+      "gray-matter",
+      "lucide-react",
+      "motion",
+      "next",
+      "next-themes",
+      "ogl",
+      "react",
+      "react-dom",
+      "react-markdown",
+      "rehype-pretty-code",
+      "rehype-stringify",
+      "remark-gfm",
+      "remark-parse",
+      "remark-rehype",
+      "shiki",
+      "tailwind-merge",
+      "tailwindcss-animate",
+      "unified",
+      "usehooks-ts"
+    ],
+    "devDependencies": [
+      "@tailwindcss/typography",
+      "@types/node",
+      "@types/react",
+      "@types/react-dom",
+      "eslint",
+      "eslint-config-next",
+      "playwright",
+      "postcss",
+      "tailwindcss",
+      "typescript"
+    ],
+    "version": "0.1.0"
+  },
+  "fileChanges": {
+    "changed": [
+      "next.config.mjs",
+      "package-lock.json",
+      "package.json",
+      "src/components/education-display-cards.tsx",
+      "src/components/ui/orb.tsx",
+      "src/components/ui/orbital-timeline.tsx"
+    ],
+    "added": [
+      "src/components/ui/orb.tsx"
+    ],
+    "deleted": []
+  }
+}

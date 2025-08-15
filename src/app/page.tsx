@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import type { Metadata } from 'next'
 import { HackathonCard } from "@/components/hackathon-card";
 import BlurFade from "@/components/magicui/blur-fade";
@@ -9,6 +10,7 @@ import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
 import { WorkExperienceOrbit } from "@/components/work-experience-orbit";
 import { EducationDisplayCards } from "@/components/education-display-cards";
+import { SkillsToolsSection } from "@/components/skills-tools-section";
 import Link from "next/link";
 import Markdown from "react-markdown";
 import { HexagonBackground } from '@/components/animate-ui/backgrounds/hexagon'; 
@@ -112,73 +114,16 @@ export default function Page() {
       
       {/* Education & Skills Section */}
       <section id="education" className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-start relative -mt-2">
-        {/* LEFT: Education Display Cards - Allow overflow for left positioning */}
+        {/* LEFT: Education Display Cards */}
         <div className="order-2 lg:order-1 lg:pr-4 overflow-visible">
           <EducationDisplayCards />
         </div>
         
-        {/* RIGHT: Skills Section */}
-        <div className="order-1 lg:order-2 space-y-8 lg:pl-8">
-          <BlurFade delay={0.1}>
-            <div className="text-center space-y-3">
-              <h2 className="text-xl sm:text-2xl font-bold flex items-center justify-center gap-2">
-                <Code className="w-6 h-6 text-primary" />
-                Skills
-              </h2>
-              <p className="text-xs sm:text-sm text-muted-foreground">
-                Core competencies that drive exceptional user experiences
-              </p>
-            </div>
-          </BlurFade>
-
-          <div className="grid grid-cols-2 gap-8">
-            {/* Design Skills */}
-            <div className="space-y-4">
-              <h3 className="text-sm font-semibold text-primary">Design</h3>
-              <div className="flex flex-wrap gap-3">
-                <Badge variant="secondary" className="text-xs px-3 py-1">UX Research</Badge>
-                <Badge variant="secondary" className="text-xs px-3 py-1">UI Design</Badge>
-                <Badge variant="secondary" className="text-xs px-3 py-1">Design Systems</Badge>
-                <Badge variant="secondary" className="text-xs px-3 py-1">Prototyping</Badge>
-              </div>
-            </div>
-
-            {/* Development Skills */}
-            <div className="space-y-4">
-              <h3 className="text-sm font-semibold text-primary">Development</h3>
-              <div className="flex flex-wrap gap-3">
-                <Badge variant="secondary" className="text-xs px-3 py-1">React</Badge>
-                <Badge variant="secondary" className="text-xs px-3 py-1">TypeScript</Badge>
-                <Badge variant="secondary" className="text-xs px-3 py-1">Next.js</Badge>
-                <Badge variant="secondary" className="text-xs px-3 py-1">Tailwind CSS</Badge>
-              </div>
-            </div>
-
-            {/* Leadership Skills */}
-            <div className="space-y-4">
-              <h3 className="text-sm font-semibold text-primary">Leadership</h3>
-              <div className="flex flex-wrap gap-3">
-                <Badge variant="secondary" className="text-xs px-3 py-1">Team Management</Badge>
-                <Badge variant="secondary" className="text-xs px-3 py-1">Design Strategy</Badge>
-                <Badge variant="secondary" className="text-xs px-3 py-1">Stakeholder Communication</Badge>
-              </div>
-            </div>
-
-            {/* Process Skills */}
-            <div className="space-y-4">
-              <h3 className="text-sm font-semibold text-primary">Process</h3>
-              <div className="flex flex-wrap gap-3">
-                <Badge variant="secondary" className="text-xs px-3 py-1">Design Thinking</Badge>
-                <Badge variant="secondary" className="text-xs px-3 py-1">User Testing</Badge>
-                <Badge variant="secondary" className="text-xs px-3 py-1">Analytics</Badge>
-                <Badge variant="secondary" className="text-xs px-3 py-1">Iteration</Badge>
-              </div>
-            </div>
-          </div>
+        {/* RIGHT: Skills & Tools Section */}
+        <div className="order-1 lg:order-2 lg:pl-8">
+          <SkillsToolsSection />
         </div>
       </section>
-      
-      {/* Skills section has been moved to the left side of the education section above */}
       
       <section id="projects">
         <div className="space-y-12 w-full py-12">
