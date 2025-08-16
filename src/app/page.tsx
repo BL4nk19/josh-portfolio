@@ -11,6 +11,7 @@ import { DATA } from "@/data/resume";
 import { WorkExperienceOrbit } from "@/components/work-experience-orbit";
 import { EducationDisplayCards } from "@/components/education-display-cards";
 import { SkillsToolsSection } from "@/components/skills-tools-section";
+import { VisitorCounter } from "@/components/visitor-counter";
 import Link from "next/link";
 import Markdown from "react-markdown";
 import { HexagonBackground } from '@/components/animate-ui/backgrounds/hexagon'; 
@@ -189,6 +190,10 @@ export default function Page() {
               </Link>{" "}
               and I&apos;ll respond whenever I can. Professional enquiries welcome.
             </p>
+          </BlurFade>
+          
+          <BlurFade delay={BLUR_FADE_DELAY * 15}>
+            <VisitorCounter className="mb-8" />
           </BlurFade>
         </div>
       </section>

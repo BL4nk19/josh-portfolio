@@ -1,0 +1,120 @@
+{
+  "timestamp": "2025-08-16T15-11-29",
+  "commit": {
+    "sha": "da94b67ba25c18eb09fb58f3493e0e3ad0151cfa",
+    "shortSha": "da94b67",
+    "message": "feat: Major portfolio enhancements and UX improvements\n\n- Enhanced About Me section with MagicUI Highlighter and improved typography\n- Replaced custom IconCloud with professional 21st.dev Interactive Icon Cloud\n- Updated tab switcher icons (PocketKnife, Brain) and refreshed tools list\n- Cleaned up section headers (removed icons/subheaders, consistent styling)\n- Added balanced 'Currently Exploring' badge to Education section\n- Fixed mobile section ordering (Education first on mobile)\n- Improved ExpandableTabs component with smooth transitions\n- Updated toolSlugs array with current tools (added claude, spotify, apple, removed sketch, adobexd)\n- Enhanced overall visual consistency and professional appearance",
+    "author": "Josh Vilensky",
+    "date": "2025-08-15 18:24:01 +0200",
+    "branch": "main"
+  },
+  "screenshots": [
+    {
+      "theme": "light",
+      "viewport": "desktop",
+      "filename": "screenshot-light-desktop.png",
+      "path": "./progress-docs/2025-08-16T15-11-29_da94b67/screenshot-light-desktop.png",
+      "label": "Light Mode - desktop"
+    },
+    {
+      "theme": "light",
+      "viewport": "mobile",
+      "filename": "screenshot-light-mobile.png",
+      "path": "./progress-docs/2025-08-16T15-11-29_da94b67/screenshot-light-mobile.png",
+      "label": "Light Mode - mobile"
+    },
+    {
+      "theme": "dark",
+      "viewport": "desktop",
+      "filename": "screenshot-dark-desktop.png",
+      "path": "./progress-docs/2025-08-16T15-11-29_da94b67/screenshot-dark-desktop.png",
+      "label": "Dark Mode - desktop"
+    },
+    {
+      "theme": "dark",
+      "viewport": "mobile",
+      "filename": "screenshot-dark-mobile.png",
+      "path": "./progress-docs/2025-08-16T15-11-29_da94b67/screenshot-dark-mobile.png",
+      "label": "Dark Mode - mobile"
+    }
+  ],
+  "url": "http://localhost:3000",
+  "notes": {
+    "type": "feature",
+    "summary": "feat: Major portfolio enhancements and UX improvements",
+    "fullMessage": "feat: Major portfolio enhancements and UX improvements\n\n- Enhanced About Me section with MagicUI Highlighter and improved typography\n- Replaced custom IconCloud with professional 21st.dev Interactive Icon Cloud\n- Updated tab switcher icons (PocketKnife, Brain) and refreshed tools list\n- Cleaned up section headers (removed icons/subheaders, consistent styling)\n- Added balanced 'Currently Exploring' badge to Education section\n- Fixed mobile section ordering (Education first on mobile)\n- Improved ExpandableTabs component with smooth transitions\n- Updated toolSlugs array with current tools (added claude, spotify, apple, removed sketch, adobexd)\n- Enhanced overall visual consistency and professional appearance"
+  },
+  "techStack": {
+    "dependencies": [
+      "@radix-ui/react-avatar",
+      "@radix-ui/react-icons",
+      "@radix-ui/react-separator",
+      "@radix-ui/react-tooltip",
+      "@types/mdx",
+      "@vercel/analytics",
+      "@vercel/speed-insights",
+      "class-variance-authority",
+      "clsx",
+      "framer-motion",
+      "gray-matter",
+      "lucide-react",
+      "motion",
+      "next",
+      "next-themes",
+      "ogl",
+      "react",
+      "react-dom",
+      "react-icon-cloud",
+      "react-markdown",
+      "rehype-pretty-code",
+      "rehype-stringify",
+      "remark-gfm",
+      "remark-parse",
+      "remark-rehype",
+      "rough-notation",
+      "shiki",
+      "tailwind-merge",
+      "tailwindcss-animate",
+      "unified",
+      "usehooks-ts"
+    ],
+    "devDependencies": [
+      "@tailwindcss/typography",
+      "@types/node",
+      "@types/react",
+      "@types/react-dom",
+      "eslint",
+      "eslint-config-next",
+      "playwright",
+      "postcss",
+      "tailwindcss",
+      "typescript"
+    ],
+    "version": "0.1.0"
+  },
+  "fileChanges": {
+    "changed": [
+      "package-lock.json",
+      "package.json",
+      "progress-docs/2025-08-15T16-23-07_d09e0d2/progress.json",
+      "progress-docs/TIMELINE.md",
+      "progress-docs/timeline.json",
+      "src/app/globals.css",
+      "src/app/page.tsx",
+      "src/components/education-display-cards.tsx",
+      "src/components/magicui/highlighter.tsx",
+      "src/components/mode-toggle.tsx",
+      "src/components/navbar.tsx",
+      "src/components/skills-tools-section.tsx",
+      "src/components/ui/expandable-tabs.tsx",
+      "src/components/ui/interactive-icon-cloud.tsx",
+      "src/components/work-experience-orbit.tsx"
+    ],
+    "added": [
+      "progress-docs/2025-08-15T16-23-07_d09e0d2/progress.json",
+      "src/components/magicui/highlighter.tsx",
+      "src/components/ui/interactive-icon-cloud.tsx"
+    ],
+    "deleted": []
+  }
+}
